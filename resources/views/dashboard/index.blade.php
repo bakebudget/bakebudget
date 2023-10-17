@@ -1,4 +1,4 @@
 @extends('layout.layout')
 @section('content')
-<h1>halo bejir</h1>
+<h1>content here</h1>
 @endsection
