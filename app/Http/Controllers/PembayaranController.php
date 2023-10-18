@@ -15,15 +15,15 @@ class PembayaranController extends Controller
     {
         $data = [
             'metode_pembayaran' => MetodePembayaran::all(),
-            'pengeluaran'=> RencanaPengeluaran::all(),
-            'pembayaran' => Pembayaran::orderBy('tanggal_pembayaran','desc')->with('rencana_pengeluaran')->paginate(5)
+            'pengeluaran' => RencanaPengeluaran::all(),
+            'pembayaran' => Pembayaran::orderBy('tanggal_pembayaran', 'desc')->with('rencana_pengeluaran')->paginate(5)
         ];
 
         $title = 'Delete User!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
 
-        return view("pembayaran.index" , $data);
+        return view("pembayaran.index", $data);
     }
 
     public function tambah(){
@@ -35,12 +35,13 @@ class PembayaranController extends Controller
         return view("pembayaran.tambah" , $data);
     }
 
-    public function detail(Request $request){
+    public function detail(Request $request)
+    {
         $id = $request->id;
         $data = [
             'metode_pembayaran' => MetodePembayaran::all(),
-            'pengeluaran'=> RencanaPengeluaran::all(),
-            'pembayaran' => Pembayaran::with(['rencana_pengeluaran','metode_pembayaran'])->find($id)
+            'pengeluaran' => RencanaPengeluaran::all(),
+            'pembayaran' => Pembayaran::with(['rencana_pengeluaran', 'metode_pembayaran'])->find($id)
         ];
 
         // dd($data['pembayaran']);

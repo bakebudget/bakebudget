@@ -42,12 +42,12 @@
                             <a href="{{ url('/pembayaran',['detail', $p->id_pembayaran]) }}"><i class="bi-eye"></i></a>
                             <a href="{{ url('/pembayaran',['hapus', $p->id_pembayaran]) }}" data-confirm-delete="true" class="btn"><i class="bi-trash"></i></a>
                             <a href=""><i class="bi-pencil-square"></i></a>
-                          </td>
-                        </tr>
-                        @endforeach
-                      </tbody>
-                </table>
-            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
 @endsection
