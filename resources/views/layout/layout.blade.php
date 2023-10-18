@@ -78,6 +78,19 @@
         border-radius: 0;
       }
 
+      .nav-link {
+        color: #052C65;
+      }
+
+      .nav-link:hover {
+        background-color: #d2f4ea;
+      }
+
+      .nav-link:focus {
+        background-color: #FD7E14;
+        color:white;
+      }
+
       .btn-toggle {
         display: inline-flex;
         align-items: center;
@@ -163,7 +176,11 @@
     {{-- navbar end --}}
     {{-- <aside> --}}
     <main style="height:calc(100vh)">
+<<<<<<< HEAD
       <div class="sidebar d-flex flex-column flex-shrink-0 p-3 " style="width: 280px;">
+=======
+      <div class="d-flex flex-column flex-shrink-0 p-3 sidebar" style="width: 280px;">
+>>>>>>> b93db1335cde36dfeb9bd635741b65ba9b952b3c
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -172,33 +189,43 @@
           </li>
           <hr>
           <li class="nav-item">
-            <a href="#" class="nav-link link-dark bg-warning" aria-current="page">
+            <a href="#" class="nav-link " aria-current="page">
               <i class="bi-house-door" height="16"></i>
               Dashboard
             </a>
           </li>
           <li>
+<<<<<<< HEAD
             <a href="#" class="nav-link link-dark " >
+=======
+            <a href="#" class="nav-link ">
+>>>>>>> b93db1335cde36dfeb9bd635741b65ba9b952b3c
               <i class="bi-shop" height="16"></i>
               Kue
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="#" class="nav-link ">
               <i class="bi-tags" height="16"></i>
               Transaksi
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="#" class="nav-link ">
               <i class="bi-journals" height="16"></i>
               Rencana Pengeluaran
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="#" class="nav-link ">
               <i class="bi-handbag" height="16"></i>
               Pembayaran
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link ">
+              <i class="bi-person-circle" height="16"></i>
+              Akun
             </a>
           </li>
         </ul>
