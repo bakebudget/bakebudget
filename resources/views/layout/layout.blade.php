@@ -27,6 +27,15 @@
           font-size: 3.5rem;
         }
       }
+      @media (min-width: 991.98px) {
+            .main {
+                padding-left: 240px;
+            }
+        }
+        main {
+                padding-left: 300px;
+                padding-right: 25px;
+            }
 
       /* .active {
         background-color: #FD7E14
@@ -46,14 +55,16 @@
         background-color: #CFE2FF;
       }
 
-      main {
+      aside {
+        /* position: relative; */
         display: flex;
         flex-wrap: nowrap;
         height: 100vh;
         height: -webkit-fill-available;
         max-height: 100vh;
-        overflow-x: auto;
-        overflow-y: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
+        
       }
 
       .b-example-divider {
@@ -175,8 +186,9 @@
     </nav> --}}
     {{-- navbar end --}}
     {{-- <aside> --}}
-    <main style="height:calc(100vh)">
-      <div class="sidebar d-flex flex-column flex-shrink-0 p-3 " style="width: 280px;">
+<header>
+    <aside style="height:calc(100vh); position: fixed;" class="">
+      <div class="position-sticky sidebar d-flex flex-column flex-shrink-0 p-3 " style="width: 280px; position: relative;">
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -185,7 +197,7 @@
           </li>
           <hr>
           <li class="nav-item">
-            <a href="#" class="nav-link " aria-current="page">
+            <a href="/dashboard" class="nav-link " aria-current="page">
               <i class="bi-house-door" height="16"></i>
               Dashboard
             </a>
@@ -209,7 +221,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link ">
+            <a href="{{ url('pembayaran') }}" class="nav-link ">
               <i class="bi-handbag" height="16"></i>
               Pembayaran
             </a>
@@ -239,10 +251,15 @@
         </li>
       </ul>
     </div>
-          <div class="container p-4">
-          {{-- @include('layout.flashMessage') --}}
-          @yield('content')
-          </div>
+          
+  </aside>
+</header>
+
+  <main>
+  <div class="container pt-4">
+    {{-- @include('layout.flashMessage') --}}
+    @yield('content')
+    </div>
   </main>
     {{-- </aside> --}}
     {{-- sidebar end --}}
