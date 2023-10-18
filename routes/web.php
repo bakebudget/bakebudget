@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/landingpage', function () {
+    return view('landingpage.index');
+});
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'check'])->name('login');
+Route::get('/logout', [LoginController::class,'logout']);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/', [DashboardController::class, 'index']);
+});

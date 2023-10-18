@@ -272,7 +272,7 @@
               <li><a href="#" class="link-dark rounded">New...</a></li>
               <li><a href="#" class="link-dark rounded">Profile</a></li>
               <li><a href="#" class="link-dark rounded">Settings</a></li>
-              <li><a href="#" class="link-dark rounded">Sign out</a></li>
+              <li><a href="{{ url('logout') }}" class="link-dark rounded">Log out</a></li>
             </ul>
           </div>
         </li>
