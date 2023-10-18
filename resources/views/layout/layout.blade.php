@@ -1,19 +1,26 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>anu</title>
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>anu</title>
+  @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
+
+  <!-- Custom CSS -->
+  <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css">
 
 
   {{-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
 
-    <style>
+  {{-- <link href="sidebars.css" rel="stylesheet"> --}}
+
+  <!-- <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -37,9 +44,9 @@
                 padding-right: 25px;
             }
 
-      /* .active {
+      .active {
         background-color: #FD7E14
-      } */
+      }
 
       body {
       min-height: 100vh;
@@ -151,15 +158,17 @@
       .fw-semibold { font-weight: 600; }
       .lh-tight { line-height: 1.25; }
 
-    </style>
+    </style> -->
+  <!-- pindahin css ke file sendiri di public\css  -->
 
-  
-    {{-- <link href="sidebars.css" rel="stylesheet"> --}}
-  </head>
-  <body>
 
-    {{-- navbar --}}
-    {{-- <nav class="navbar navbar-expand bg-warning bg-body-tertiary bg-warning">
+
+</head>
+
+<body>
+
+  {{-- navbar --}}
+  {{-- <nav class="navbar navbar-expand bg-warning bg-body-tertiary bg-warning">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -184,9 +193,9 @@
         </div>
       </div>
     </nav> --}}
-    {{-- navbar end --}}
-    {{-- <aside> --}}
-<header>
+  {{-- navbar end --}}
+  {{-- <aside> --}}
+  <header>
     <aside style="height:calc(100vh); position: fixed;" class="">
       <div class="position-sticky sidebar d-flex flex-column flex-shrink-0 p-3 " style="width: 280px; position: relative;">
         <ul class="nav nav-pills flex-column mb-auto">
@@ -203,7 +212,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link ">
+            <a href="{{ url('kue') }}" class="nav-link ">
               <i class="bi-shop" height="16"></i>
               Kue
             </a>
@@ -236,52 +245,53 @@
         <hr>
         <ul class="list-unstyled ps-0">
 
-        <li class="mb-1">
-          <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-            Account
-          </button>
-          <div class="collapse" id="account-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-dark rounded">New...</a></li>
-              <li><a href="#" class="link-dark rounded">Profile</a></li>
-              <li><a href="#" class="link-dark rounded">Settings</a></li>
-              <li><a href="{{ url('logout') }}" class="link-dark rounded">Log out</a></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-          
-  </aside>
-</header>
+          <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+              Account
+            </button>
+            <div class="collapse" id="account-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-dark rounded">New...</a></li>
+                <li><a href="#" class="link-dark rounded">Profile</a></li>
+                <li><a href="#" class="link-dark rounded">Settings</a></li>
+                <li><a href="{{ url('logout') }}" class="link-dark rounded">Log out</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </aside>
+  </header>
 
   <main>
-  <div class="container pt-4">
-    {{-- @include('layout.flashMessage') --}}
-    @yield('content')
+    <div class="container pt-4">
+      {{-- @include('layout.flashMessage') --}}
+      @yield('content')
     </div>
   </main>
-    {{-- </aside> --}}
-    {{-- sidebar end --}}
+  {{-- </aside> --}}
+  {{-- sidebar end --}}
 
-    {{-- <main style="margin-top: 90px;"> --}}
+  {{-- <main style="margin-top: 90px;"> --}}
 
   {{-- </main> --}}
-    
 
 
-    
-    <script>
-      (function () {
-        'use strict'
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-          new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-      })()
-    </script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
+
+  <script>
+    (function() {
+      'use strict'
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.forEach(function(tooltipTriggerEl) {
+        new bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    })()
+  </script>
+  {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script> --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+
 </html>

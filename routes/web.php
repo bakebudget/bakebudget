@@ -21,8 +21,16 @@ Route::get('/landingpage', function () {
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'check'])->name('login');
-Route::get('/logout', [LoginController::class,'logout']);
+Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
+});
+
+Route::get('/pembayaran', function () {
+    return view('pembayaran.index');
+});
+
+Route::get('/kue', function () {
+    return view('kue.index');
 });
