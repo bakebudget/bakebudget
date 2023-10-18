@@ -4,10 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use View;
 
+
+/**
+ * Undocumented class
+ */
 class LoginController extends Controller
 {
-    public function index()
+    /**
+     * 
+     *
+     * @return View
+     */
+    public function index(): View
     {
         //
         return view('login.form');
@@ -22,11 +33,11 @@ class LoginController extends Controller
                 'password' => ['required']
             ]
         );
-        // dd(User::attempt($akun));
-        if (User::attempt($akun)) {
+        // dd(Auth::attempt($akun));
+        if (Auth::attempt($akun)) {
             // dd($akun);
             $request->session()->regenerate();
-            if (User::user()->level == 'admin'):
+            if (Auth::user()->level == 'admin'):
                 return redirect()->to('/');
             else:
                 return redirect()->to('/');
