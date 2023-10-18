@@ -43,6 +43,7 @@
 
       .sidebar {
         border-radius: 0px 30px 30px 0px;
+        background-color: #CFE2FF;
       }
 
       main {
@@ -162,7 +163,7 @@
     {{-- navbar end --}}
     {{-- <aside> --}}
     <main style="height:calc(100vh)">
-      <div class="d-flex flex-column flex-shrink-0 p-3 bg-primary bg-opacity-50 sidebar" style="width: 280px;">
+      <div class="sidebar d-flex flex-column flex-shrink-0 p-3 " style="width: 280px;">
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -177,7 +178,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link link-dark ">
+            <a href="#" class="nav-link link-dark " >
               <i class="bi-shop" height="16"></i>
               Kue
             </a>
@@ -219,11 +220,10 @@
         </li>
       </ul>
     </div>
-          <div class="container pt-4">
+          <div class="container p-4">
           {{-- @include('layout.flashMessage') --}}
           @yield('content')
-          {{-- <h1>hi</h1> --}}
-        </div>
+          </div>
   </main>
     {{-- </aside> --}}
     {{-- sidebar end --}}
