@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\MetodePembayaran;
+use App\Models\RencanaPengeluaran;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * App\Models\Pembayaran
@@ -41,4 +44,14 @@ class Pembayaran extends Model
         'nama_penerima', 'nomor_rekening_penerima', 'nominal'
     ];
     public $timestamps = false;
+
+    function metode_pembayaran(): BelongsTo
+    {
+        return $this->belongsTo(MetodePembayaran::class,'kode_metode','kode_metode');
+    }
+
+    function rencana_pengeluaran(): BelongsTo
+    {
+        return $this->belongsTo(RencanaPengeluaran::class,'id_pengeluaran','id_pengeluaran');
+    }
 }
