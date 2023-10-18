@@ -22,7 +22,7 @@ return new class extends Migration {
               DECLARE paddedID CHAR(255);
             
               -- ambil kode terakhir di database
-              SELECT MAX(CAST(SUBSTRING(kode_metode, LENGTH(prefix) + 1) AS SIGNED)) INTO lastID FROM tabel WHERE kode_metode LIKE CONCAT(prefix, '%');
+              SELECT MAX(CAST(SUBSTRING(kode_metode, LENGTH(prefix) + 1) AS SIGNED)) INTO lastID FROM metode_pembayaran WHERE kode_metode LIKE CONCAT(prefix, '%');
             
               -- Generate kode 
               IF lastID IS NULL THEN

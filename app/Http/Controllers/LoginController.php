@@ -34,12 +34,12 @@ class LoginController extends Controller
             // dd($akun);
             $request->session()->regenerate();
             if (Auth::user()->level == 'admin'):
-                return redirect()->to('/');
+                return redirect()->to('/')->with('success','Anda Berhasil Login!');
             else:
                 return redirect()->to('/');
             endif;
         }
-        return 'akun yang anda masukkan salah';
+        return redirect('/login')->with('error','Password/Username yang anda masukkan salah!');
     }
 
     public function logout(Request $request){

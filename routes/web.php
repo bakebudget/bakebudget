@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PembayaranController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,13 @@ Route::get('/logout', [LoginController::class,'logout']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+
+    /**
+     * Routing Pembayaran
+     */
+    Route::get('/pembayaran', [PembayaranController::class,'index']);
+    Route::get('/pembayaran/tambah', [PembayaranController::class,'tambah']);
+    Route::get('/pembayaran/detail/{id}', [PembayaranController::class,'detail']);
+    Route::get('/pembayaran/hapus/{id}', [PembayaranController::class,'destroy']);
 });

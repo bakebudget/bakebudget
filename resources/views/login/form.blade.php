@@ -40,9 +40,9 @@
     
                                 <button type="submit" class="btn btn-outline-dark btn-lg px-5">login</button>
                             </form>
-                            <!-- <a href="register.php">belum punya akun?</a> -->
+
                             <div>
-                            <p class="mb-0">Belum punya akun? <a href="register.php" class="text-blue-50 fw-bold">Register disini</a>
+                            <p class="mb-0">Belum punya akun? <a href="/" class="text-blue-50 fw-bold">Register disini</a>
                             </p>
                             </div>
     
@@ -54,5 +54,6 @@
         </div>
     </section>
     
+    @include('sweetalert::alert')
 </body>
 </html>

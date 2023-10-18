@@ -1,8 +1,9 @@
 @extends('layout.layout')
 @section('content')
     <div class="row">
+        
         <div class="card">
-            <h1>Data Rencana Pengeluaran</h1>
+            <h1>Data Pembayaran</h1>
             <div class="row">
                 <div class="col">
                     <div class="input-group col-md-4" style="max-width: 300px; border-right: none;">
@@ -13,11 +14,11 @@
                     </div>
                 </div>
                 <div class="col float-end text-end ml-5">
-                    <a href="/pembayaran/tambah" class="btn btn-success">Tambah</a>
+                    <a href="{{ url('pembayaran',['tambah']) }}" class="btn btn-success">Tambah</a>
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-bordered">
+                <table class="table  table-bordered">
                     <thead>
                         <tr>
                           <th scope="col">#</th>
@@ -39,7 +40,7 @@
                           <td>{{ $p->nominal }}</td>
                           <td>
                             <a href="{{ url('/pembayaran',['detail', $p->id_pembayaran]) }}"><i class="bi-eye"></i></a>
-                            <a href=""><i class="bi-trash"></i></a>
+                            <a href="{{ url('/pembayaran',['hapus', $p->id_pembayaran]) }}" data-confirm-delete="true" class="btn"><i class="bi-trash"></i></a>
                             <a href=""><i class="bi-pencil-square"></i></a>
                           </td>
                         </tr>
