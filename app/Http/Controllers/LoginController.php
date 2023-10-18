@@ -13,12 +13,8 @@ use View;
  */
 class LoginController extends Controller
 {
-    /**
-     * 
-     *
-     * @return View
-     */
-    public function index(): View
+    
+    public function index()
     {
         //
         return view('login.form');
@@ -44,5 +40,15 @@ class LoginController extends Controller
             endif;
         }
         return 'akun yang anda masukkan salah';
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }
