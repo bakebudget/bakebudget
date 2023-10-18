@@ -176,11 +176,7 @@
     {{-- navbar end --}}
     {{-- <aside> --}}
     <main style="height:calc(100vh)">
-<<<<<<< HEAD
       <div class="sidebar d-flex flex-column flex-shrink-0 p-3 " style="width: 280px;">
-=======
-      <div class="d-flex flex-column flex-shrink-0 p-3 sidebar" style="width: 280px;">
->>>>>>> b93db1335cde36dfeb9bd635741b65ba9b952b3c
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -195,11 +191,7 @@
             </a>
           </li>
           <li>
-<<<<<<< HEAD
-            <a href="#" class="nav-link link-dark " >
-=======
             <a href="#" class="nav-link ">
->>>>>>> b93db1335cde36dfeb9bd635741b65ba9b952b3c
               <i class="bi-shop" height="16"></i>
               Kue
             </a>
