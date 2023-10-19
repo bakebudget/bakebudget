@@ -28,7 +28,10 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
+
     Route::get('/kue', [KueController::class, 'index']);
+    Route::get('/kue/add', [KueController::class, 'add']);
+
     Route::get('/pembayaran', [PembayaranController::class, 'index']);
 });
 
