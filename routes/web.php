@@ -45,10 +45,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/pembayaran/hapus/{id}', [PembayaranController::class,'destroy']);
 });
 
-// Route::get('/pembayaran', function () {
-//     return view('pembayaran.index');
-// });
 
-// Route::get('/kue', function () {
-//     return view('kue.index');
-// });

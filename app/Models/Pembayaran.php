@@ -41,7 +41,7 @@ class Pembayaran extends Model
     protected $keyType = 'string';
     protected $fillable = [
         'kode_metode', 'id_pengeluaran', 'bukti_pembayaran', 'tanggal_pembayaran',
-        'nama_penerima', 'nomor_rekening_penerima', 'nominal'
+        'nama_penerima', 'nomor_rekening_penerima', 'nominal', 'id_pembayaran'
     ];
     public $timestamps = false;
 

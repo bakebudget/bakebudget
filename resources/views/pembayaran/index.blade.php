@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table  table-bordered">
+                <table class="table  table-bordered DataTable">
                     <thead>
                         <tr>
                           <th scope="col">#</th>
@@ -40,7 +40,9 @@
                           <td>{{ $p->nominal }}</td>
                           <td>
                             <a href="{{ url('/pembayaran',['detail', $p->id_pembayaran]) }}"><i class="bi-eye"></i></a>
-                            <a href="{{ url('/pembayaran',['hapus', $p->id_pembayaran]) }}" data-confirm-delete="true" class="btn"><i class="bi-trash"></i></a>
+                            {{-- tombol hapus --}}
+                            <a href="{{ url('/pembayaran',['hapus', $p->id_pembayaran]) }}" onclick="confirm('Apakah anda yakin ingin menghapus data ini?')"><i class="bi-trash"></i></a>
+
                             <a href=""><i class="bi-pencil-square"></i></a>
                         </td>
                     </tr>
@@ -50,4 +52,21 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('footer')
+<script type="module">
+    $(document).on('click', '.hapusButton', function (e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    Swal({
+            title: "Are you sure!",
+            type: "error",
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes!",
+            showCancelButton: true,
+        })        
+            });
+
+</script>
 @endsection
