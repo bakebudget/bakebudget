@@ -252,6 +252,12 @@
               Akun
             </a>
           </li>
+          <li>
+            <a href="#" class="nav-link ">
+              <i class="bi-pen" height="16"></i>
+              Log Activity
+            </a>
+          </li>
         </ul>
         <hr>
         <ul class="list-unstyled ps-0">
