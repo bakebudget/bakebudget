@@ -269,9 +269,12 @@
 
   {{-- </main> --}}
     
-
+@yield('footer');
 
   @include('sweetalert::alert')
+  <script type="module">
+
+  </script>
     <script>
       (function () {
         'use strict'
