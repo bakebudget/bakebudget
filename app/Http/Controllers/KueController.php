@@ -18,7 +18,7 @@ class KueController extends Controller
     {
         return view('kue.add');
     }
-
+}
     // public function store(Request $request) 
     // {
     //     $validasiData = $request->validate([
@@ -52,4 +52,4 @@ class KueController extends Controller
 
     //     return redirect()->route('kue.index')->with('success', 'Kue deleted successfully');
     // }
-}
+
