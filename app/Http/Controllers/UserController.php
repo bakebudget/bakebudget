@@ -28,12 +28,12 @@ class UserController extends Controller
         $user->password = Hash::make($data['password']);
         $user->save();
 
-        return redirect()->to('user')->with('success', 'User berhasil dibuat');
+        return redirect()->route('user')->with('success', 'User berhasil dibuat');
     }
 
     public function detail(Request $request)
     {
-        $id = $request->$id;
+        $id = $request->id;
         $data = [
             'user' => User::all()
         ];
