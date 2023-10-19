@@ -252,6 +252,12 @@
               Akun
             </a>
           </li>
+          <li>
+            <a href="{{ url('log') }}" class="nav-link ">
+              <i class="bi-journal-text" height="16"></i>
+              Log Activity
+            </a>
+          </li>
         </ul>
         <hr>
         <ul class="list-unstyled ps-0">
