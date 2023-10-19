@@ -12,11 +12,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
 
+  <script src="sweetalert2.all.min.js"></script>
+
   <!-- custom css -->
   <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css">
   <link rel="icon" href="{{asset('bakebudget.ico')}}">
 
   {{-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
+  {{-- <link href="sidebars.css" rel="stylesheet"> --}}
 
   <!-- <style>
     .bd-placeholder-img {
@@ -170,7 +173,7 @@
   </style> -->
 
 
-  {{-- <link href="sidebars.css" rel="stylesheet"> --}}
+
 </head>
 
 <body>

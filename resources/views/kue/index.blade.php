@@ -36,7 +36,15 @@
                             <td>{{ $k->nama_kue }}</td>
                             <td>{{ $k->stok_kue }}</td>
                             <td>{{ $k->harga_kue }}</td>
-                            <td>{{ $k->gambar_kue }}</td>
+                            <td>
+                                @if($k)
+                                <img src="data:{{ $k->jpg}};base64,{{ base64_encode($k->gambar_kue) }}>" alt="">
+                                @else
+                                <p>Image not found</p>
+                                @endif
+                                <!-- gak tau dari ourfriend  -->
+                                <!-- {{ $k->gambar_kue }} -->
+                            </td>
                             <td>
                                 <a href="{{ url('/kue',['detail', $k->kode_kue]) }}"><i class="bi-eye"></i></a>
                                 <a href=""><i class="bi-trash"></i></a>
