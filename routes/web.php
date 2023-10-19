@@ -46,7 +46,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/pembayaran/tambah', [PembayaranController::class,'tambah']);
     Route::post('/pembayaran/simpan', [PembayaranController::class,'simpan']);
     Route::get('/pembayaran/detail/{id}', [PembayaranController::class,'detail']);
+    Route::get('/pembayaran/edit/{id}', [PembayaranController::class,'edit']);
+    Route::post('/pembayaran/update/{id}', [PembayaranController::class,'update']);
     Route::get('/pembayaran/hapus/{id}', [PembayaranController::class,'destroy']);
+    Route::get('/pembayaran/download', [PembayaranController::class,'download']);
 });
 
 

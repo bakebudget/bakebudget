@@ -43,7 +43,7 @@
                             {{-- tombol hapus --}}
                             <a href="{{ url('/pembayaran',['hapus', $p->id_pembayaran]) }}" onclick="confirm('Apakah anda yakin ingin menghapus data ini?')"><i class="bi-trash"></i></a>
 
-                            <a href=""><i class="bi-pencil-square"></i></a>
+                            <a href="{{ url('/pembayaran',['edit', $p->id_pembayaran]) }}"><i class="bi-pencil-square"></i></a>
                         </td>
                     </tr>
                     @endforeach
