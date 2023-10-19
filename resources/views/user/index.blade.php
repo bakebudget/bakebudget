@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="col float-end text-end ml-5">
-                    <a href="/kue/add" class="btn btn-success">Tambah</a>
+                    <a href="/user/tambah" class="btn btn-success">Tambah</a>
                 </div>
             </div>
             <div class="card-body">
