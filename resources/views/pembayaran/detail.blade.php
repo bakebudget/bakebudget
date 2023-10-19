@@ -30,6 +30,10 @@
                 </div> --}}
                 <div class="list-group">
                     <div class="list-group-item">
+                        <h5 class="mb-1">ID Pembayaran</h5>
+                        <p class="mb-1">{{ $pembayaran->id_pembayaran }}</p>
+                    </div>
+                    <div class="list-group-item">
                         <h5 class="mb-1">Tanggal Pembayaran</h5>
                         <p class="mb-1">{{ $pembayaran->tanggal_pembayaran }}</p>
                     </div>

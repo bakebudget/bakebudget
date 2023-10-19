@@ -20,7 +20,7 @@ class LoginController extends Controller
         return view('login.form');
     }
 
-    public function check(Request $request)
+    public function logincheck(Request $request)
     {
         // dd($request->all());
         $akun = $request->validate(

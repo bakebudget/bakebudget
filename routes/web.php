@@ -23,7 +23,7 @@ Route::get('/landingpage', function () {
 });
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'check'])->name('login');
+Route::post('/login', [LoginController::class, 'logincheck'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::middleware('auth')->group(function () {
@@ -33,12 +33,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/kue/add', [KueController::class, 'add']);
 
     Route::get('/pembayaran', [PembayaranController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+
+    /**
+     * Routing Pembayaran
+     */
+    Route::get('/pembayaran', [PembayaranController::class,'index']);
+    Route::get('/pembayaran/tambah', [PembayaranController::class,'tambah']);
+    Route::post('/pembayaran/simpan', [PembayaranController::class,'simpan']);
+    Route::get('/pembayaran/detail/{id}', [PembayaranController::class,'detail']);
+    Route::get('/pembayaran/hapus/{id}', [PembayaranController::class,'destroy']);
 });
 
-// Route::get('/pembayaran', function () {
-//     return view('pembayaran.index');
-// });
 
-// Route::get('/kue', function () {
-//     return view('kue.index');
-// });
