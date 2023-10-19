@@ -21,15 +21,24 @@ class UserController extends Controller
         return view('user.index', $data);
     }
 
-    public function tambah(UserRequest $request): RedirectResponse
+    public function tambah()
     {
-        $data = $request->validated();
-        $user = new User($data);
-        $user->password = Hash::make($data['password']);
-        $user->save();
-
-        return redirect()->route('user')->with('success', 'User berhasil dibuat');
+        $data = [
+            'user' => User::all()
+        ];
+        
+        return view('user.tambah', $data);
     }
+
+  //  public function tambah(UserRequest $request): RedirectResponse
+   // {
+  //      $data = $request->validated();
+    //    $user = new User($data);
+    //    $user->password = Hash::make($data['password']);
+    //    $user->save();
+
+   //     return redirect()->route('user')->with('success', 'User berhasil dibuat');
+   // }
 
     public function detail(Request $request)
     {
