@@ -134,3 +134,11 @@
 
   .fw-semibold { font-weight: 600; }
   .lh-tight { line-height: 1.25; }
+
+  .judulkue {
+    margin-bottom: 20px;
+  }
+
+ .cardkue {
+    padding-top: 20px;
+  }

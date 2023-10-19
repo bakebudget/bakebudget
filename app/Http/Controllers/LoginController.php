@@ -13,7 +13,7 @@ use View;
  */
 class LoginController extends Controller
 {
-    
+
     public function index()
     {
         //
@@ -33,16 +33,17 @@ class LoginController extends Controller
         if (Auth::attempt($akun)) {
             // dd($akun);
             $request->session()->regenerate();
-            if (Auth::user()->level == 'admin'):
+            if (Auth::user()->level == 'admin') :
                 return redirect()->to('/');
-            else:
+            else :
                 return redirect()->to('/');
             endif;
         }
         return 'akun yang anda masukkan salah';
     }
 
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         Auth::logout();
 
         $request->session()->invalidate();

@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KueController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PembayaranController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,13 +26,15 @@ Route::post('/login', [LoginController::class, 'check'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/kue', [KueController::class, 'index']);
+    Route::get('/pembayaran', [PembayaranController::class, 'index']);
 });
 
-Route::get('/pembayaran', function () {
-    return view('pembayaran.index');
-});
+// Route::get('/pembayaran', function () {
+//     return view('pembayaran.index');
+// });
 
-Route::get('/kue', function () {
-    return view('kue.index');
-});
+// Route::get('/kue', function () {
+//     return view('kue.index');
+// });
