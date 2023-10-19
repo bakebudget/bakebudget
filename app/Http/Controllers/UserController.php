@@ -30,15 +30,38 @@ class UserController extends Controller
         return view('user.tambah', $data);
     }
 
-  //  public function tambah(UserRequest $request): RedirectResponse
-   // {
-  //      $data = $request->validated();
-    //    $user = new User($data);
-    //    $user->password = Hash::make($data['password']);
-    //    $user->save();
 
-   //     return redirect()->route('user')->with('success', 'User berhasil dibuat');
-   // }
+   public function simpan(Request $request){
+    $data = $request->validate([
+        'username' => 'required',
+        'level' => 'required',
+        'password' => 'required',
+        'foto' => 'mimes:png,jpg,jpeg,csv,txt,pdf',
+    ]);
+
+
+    if ($data):
+        
+        $file = $request->file('foto');
+        $filename = '';
+
+        if($file) {
+        $filename = time() . '_' . $file->getClientOriginalName();
+        }
+
+        $data['foto'] = $filename;
+        $dataInsert = User::query()->create($data);
+        if ($dataInsert):
+            if($file){
+            $file->storePubliclyAs('', $filename, 'public');
+            }
+            return redirect('/user')->with('success', 'Data pembayaran baru berhasil ditambah');
+        else:
+            return redirect('/user/tambah')->with('error', 'Data pembayaran baru Gagal ditambah');
+        endif;
+    endif;
+}
+
 
     public function detail(Request $request)
     {
