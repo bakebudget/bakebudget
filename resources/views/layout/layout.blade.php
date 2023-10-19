@@ -253,8 +253,8 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link ">
-              <i class="bi-pen" height="16"></i>
+            <a href="{{ url('log') }}" class="nav-link ">
+              <i class="bi-journal-text" height="16"></i>
               Log Activity
             </a>
           </li>
