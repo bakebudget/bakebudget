@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KueController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
+use Doctrine\DBAL\Schema\Index;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,8 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/kue', [KueController::class, 'index']);
+    Route::get('/pembayaran', [PembayaranController::class, 'index']);
 });
 
 // Route::get('/pembayaran', function () {
