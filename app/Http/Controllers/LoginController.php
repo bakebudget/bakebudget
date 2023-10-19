@@ -13,7 +13,7 @@ use View;
  */
 class LoginController extends Controller
 {
-    
+
     public function index()
     {
         //
@@ -34,7 +34,7 @@ class LoginController extends Controller
             // dd($akun);
             $request->session()->regenerate();
             if (Auth::user()->level == 'admin'):
-                return redirect()->to('/')->with('success','Anda Berhasil Login!');
+                return redirect()->to('/');
             else:
                 return redirect()->to('/');
             endif;
@@ -42,7 +42,8 @@ class LoginController extends Controller
         return redirect('/login')->with('error','Password/Username yang anda masukkan salah!');
     }
 
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         Auth::logout();
 
         $request->session()->invalidate();

@@ -14,7 +14,7 @@ class KueController extends Controller
         // return view('kue.index', $kue);
     }
 
-    public function create()
+    public function add()
     {
         return view('kue.add');
     }
