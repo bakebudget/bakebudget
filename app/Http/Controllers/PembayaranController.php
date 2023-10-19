@@ -98,6 +98,55 @@ class PembayaranController extends Controller
         return view('pembayaran.detail' , $data);
     }
 
+    public function edit(Request $request){
+        $id = $request->id;
+        $data = [
+            'metode' => MetodePembayaran::all(),
+            'rencana' => RencanaPengeluaran::all(),
+            'pembayaran' => Pembayaran::with(['rencana_pengeluaran', 'metode_pembayaran'])->find($id)
+        ];
+
+        return view('pembayaran.edit' , $data);
+    }
+    public function update(Request $request, ){
+        $data = $request->validate([
+            'tanggal_pembayaran' => 'required',
+            'kode_metode' => 'required',
+            'id_pengeluaran' => 'required',
+            'nama_penerima' => 'required',
+            'bukti_pembayaran' => 'mimes:png,jpg,jpeg,csv,txt,pdf',
+            // 'nomor_rekening_penerima' => 'integer',
+            'nominal' => 'required|integer',
+        ]);
+
+        $file = $request->file('bukti_pembayaran');
+        $oldfile = $request->file('oldfile');
+        $filename = '';
+
+        if($file){
+            $filename = $file;
+        }
+        if($file !== $oldfile){
+            $filename = time() . '_' . $file->getClientOriginalName();
+        }
+
+        $data['bukti_pembayaran'] = $filename;
+        $update = Pembayaran::query()->find($request->id);
+
+        if($oldfile){
+            Storage::disk('public')->delete($oldfile);
+        }
+        
+        if ($update->fill($data)->save()) {
+            if($filename){
+            $file->storePubliclyAs('', $filename, 'public');
+        }
+            return redirect()->to('/pembayaran')->with('success', "Data Pembayaran berhasil diupdate");
+        } else
+            return redirect()->back()->with('error', "Data Pembayaran gagal diupdate");
+    }
+    
+
     public function destroy(Pembayaran $pembayaran, Request $request)
     {
         $curr_pembayaran = $pembayaran->newQuery()->find($request->id);
@@ -108,5 +157,9 @@ class PembayaranController extends Controller
             return redirect()->to('/pembayaran')->with('success','Data Pembayaran berhasil dihapus');
         } else
             return redirect()->to('/pembayaran')->with('error','Data Pembayaran gagal dihapus');
+    }
+
+    public function download(Request $request){
+        return Storage::disk('public')->download($request->path);
     }
 }
