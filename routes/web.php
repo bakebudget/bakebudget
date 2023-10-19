@@ -26,9 +26,7 @@ Route::post('/login', [LoginController::class, 'check'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
-    Route::get('/kue', [KueController::class, 'index']);
-    Route::get('/pembayaran', [PembayaranController::class, 'index']);
+    Route::get('/', [DashboardController::class, 'index']);
 });
 
 // Route::get('/pembayaran', function () {

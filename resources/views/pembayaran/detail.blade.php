@@ -55,7 +55,7 @@
                     </div>
                     <div class="list-group-item">
                         <h5 class="mb-1">Bukti Pembayaran</h5>
-                        <a href="" class="btn btn-success">Download File</a>
+                        <a href="{{ url("pembayaran?path=$pembayaran->bukti_pembayaran", ["download"]) }}" class="btn btn-success">Download File</a>
                     </div>
                 </div>
             </div>
