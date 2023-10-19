@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KueController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
 use Doctrine\DBAL\Schema\Index;
@@ -31,6 +32,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/kue', [KueController::class, 'index']);
     Route::get('/kue/add', [KueController::class, 'add']);
+
+    Route::get('/user', [UserController::class, 'index']);
+    Route::get('/user/tambah', [UserController::class, 'tambah']);
 
     Route::get('/pembayaran', [PembayaranController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index']);

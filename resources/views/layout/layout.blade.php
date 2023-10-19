@@ -247,7 +247,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link ">
+            <a href="{{ url('user') }}" class="nav-link ">
               <i class="bi-person-circle" height="16"></i>
               Akun
             </a>
