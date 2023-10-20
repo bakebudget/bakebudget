@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/user', [UserController::class, 'index']);
     Route::get('/user/tambah', [UserController::class, 'tambah']);
+    Route::post('/user/simpan', [UserController::class,'simpan']);
 
     Route::get('/pembayaran', [PembayaranController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index']);
