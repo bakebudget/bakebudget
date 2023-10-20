@@ -86,6 +86,10 @@
     color:white;
   }
 
+  .hapusButton {
+    color: #216ad8;
+  }
+
   .btn-toggle {
     display: inline-flex;
     align-items: center;

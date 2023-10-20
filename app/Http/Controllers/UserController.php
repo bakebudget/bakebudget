@@ -103,7 +103,7 @@ public function update(Request $request){
     {
         $id = $request->id;
         $data = [
-            'user' => User::all()
+            'user' => User::find($request->id)
         ];
 
         return view('user.detail', $data);
@@ -129,6 +129,8 @@ public function edit(Request $request)
     
     return view('user.edit', $data);
 }
+
+
 
 }
 
