@@ -18,6 +18,9 @@
         </div>
     </div>
 </div>
+<div class="row">
+  <div class="col"></div>
+</div>
 <div class="row mt-5">
     <h2>Data Transaksi Terbaru</h2>
     <div class="col">

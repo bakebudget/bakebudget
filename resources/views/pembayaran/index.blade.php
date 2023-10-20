@@ -44,8 +44,8 @@
                                     <a href="{{ url('/pembayaran', ['detail', $p->id_pembayaran]) }}"><i
                                             class="bi-eye"></i></a>
                                     {{-- tombol hapus --}}
-                                    <a href="{{ url('/pembayaran', ['hapus', $p->id_pembayaran]) }}"><i
-                                            class="bi-trash hapusButton"></i></a>
+                                    <button data-id="{{ $p->id_pembayaran }}" class="btn hapusButton"
+                                        data-id="{{ $p->id_pembayaran }}"><i class="bi-trash"></i></button>
 
                                     <a href="{{ url('/pembayaran', ['edit', $p->id_pembayaran]) }}"><i
                                             class="bi-pencil-square"></i></a>
@@ -63,7 +63,7 @@
     <script type="module">
         $(document).on('click', '.hapusButton', function(e) {
             e.preventDefault();
-            var id = $(this).data('id');
+            let id = $(this).data('id');
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -73,8 +73,19 @@
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
             }).then(({
-                isConfirmed
-            }) => console.log(isConfirmed))
+                    isConfirmed
+                }) => isConfirmed &&
+                axios.get(`/pembayaran/hapus/${id}`)
+                .then(() => Swal.fire({
+                    icon: "success",
+                    titleText: "Data berhasil dihapus",
+                }))
+                .catch(() => Swal.fire({
+                    icon: "error",
+                    titleText: "Data gagal dihapus",
+                }))
+                .finally(() => window.location.reload())
+            )
         });
     </script>
 @endsection

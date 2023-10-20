@@ -18,13 +18,14 @@ return new class extends Migration
             "CREATE PROCEDURE $this->spName
             (
                 Username VARCHAR(100),
+                Ip_address VARCHAR(100),
                 Action ENUM('INSERT', 'UPDATE', 'DELETE'),
                 Log TEXT
             )
             MODIFIES SQL DATA
             BEGIN
-                INSERT INTO logs (username, action, log)
-                VALUES (Username, Action, Log);
+                INSERT INTO log_aplikasi (username, ip_address, action, log)
+                VALUES (Username, Ip_address, Action, Log);
             END;"
         );
     }
@@ -35,5 +36,6 @@ return new class extends Migration
     public function down(): void
     {
         //
+        DB::unprepared("DROP PROCEDURE IF EXISTS $this->spName");
     }
 };

@@ -12,22 +12,7 @@
                 Detail Pembayaran
             </div>
             <div class="card-body">
-                {{-- <div class="row">
-                    <div class="col">
-                        <ul>
-                            <li>Tanggal Pembayaran</li>
-                            <li>Metode Pembayaran</li>
-                            <li>Nama Penerima</li>
-                            <li>Nomor Rekening Penerima</li>
-                            <li>Nominal</li>
-                            <li>Bukti Pembayaran</li>
-                            <li>Perihal</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        hi
-                    </div>
-                </div> --}}
+               
                 <div class="list-group">
                     <div class="list-group-item">
                         <h5 class="mb-1">ID Pembayaran</h5>

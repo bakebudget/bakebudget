@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id('id_log');
             $table->string('username',255);
             $table->string('ip_address',255);
-            $table->text('action');
+            $table->enum('action',['INSERT','UPDATE','DELETE']);
+            $table->text('log');
             $table->dateTime('created_at')->useCurrent();
         });
     }

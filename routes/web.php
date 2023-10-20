@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KueController;
+use App\Http\Controllers\LogController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
@@ -51,7 +52,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pembayaran/hapus/{id}', [PembayaranController::class,'destroy']);
     Route::get('/pembayaran/download', [PembayaranController::class,'download']);
 
-    Route::get('/log', [LoginController::class,'index']);
+    Route::get('/log', [LogController::class,'index']);
 });
 
 
