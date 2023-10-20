@@ -39,6 +39,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/user', [UserController::class, 'index']);
     Route::get('/user/tambah', [UserController::class, 'tambah']);
     Route::post('/user/simpan', [UserController::class, 'simpan']);
+    Route::get('/user/detail/{id}', [UserController::class, 'detail']);
+    Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
+    Route::get('/user/edit/{id}', [UserController::class, 'edit']);
+    Route::post('/user/update/{id}', [UserController::class, 'update']);
+
+
 
     Route::get('/pembayaran', [PembayaranController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index']);

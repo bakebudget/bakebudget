@@ -37,8 +37,8 @@
                             <td>{{ $u->foto }}</td>
                             <td>
                                 <a href="{{ url('/user',['detail', $u->username]) }}"><i class="bi-eye"></i></a>
-                                <a href=""><i class="bi-trash"></i></a>
-                                <a href=""><i class="bi-pencil-square"></i></a>
+                                <button data-id="{{ $u->username }}" class="btn hapusButton"><i class="bi-trash"></i></button>
+                                <a href="{{ url('/user', ['edit', $u->username]) }}"><i class="bi-pencil-square"></i></a>
                             </td>
                         </tr>
                         @endforeach
@@ -48,4 +48,35 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('footer')
+    <script type="module">
+        $(document).on('click', '.hapusButton', function(e) {
+            e.preventDefault();
+            let id = $(this).data('id');
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Data anda tidak akan dapat dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!!'
+            }).then(({
+                    isConfirmed
+                }) => isConfirmed &&
+                axios.get(`/user/hapus/${id}`)
+                .then(() => Swal.fire({
+                    icon: "success",
+                    titleText: "Data berhasil dihapus",
+                }))
+                .catch(() => Swal.fire({
+                    icon: "error",
+                    titleText: "Data gagal dihapus",
+                }))
+                .finally(() => window.location.reload())
+            )
+        });
+    </script>
 @endsection
