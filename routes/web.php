@@ -33,10 +33,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/kue', [KueController::class, 'index']);
     Route::get('/kue/add', [KueController::class, 'add']);
+    Route::post('kue/addsubmit', [KueController::class, 'addsubmit']);
+    Route::get('kue/hapus/{kode_kue}', [KueController::class, 'destroy']);
 
     Route::get('/user', [UserController::class, 'index']);
     Route::get('/user/tambah', [UserController::class, 'tambah']);
-    Route::post('/user/simpan', [UserController::class,'simpan']);
+    Route::post('/user/simpan', [UserController::class, 'simpan']);
 
     Route::get('/pembayaran', [PembayaranController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index']);
@@ -44,14 +46,14 @@ Route::middleware('auth')->group(function () {
     /**
      * Routing Pembayaran
      */
-    Route::get('/pembayaran', [PembayaranController::class,'index']);
-    Route::get('/pembayaran/tambah', [PembayaranController::class,'tambah']);
-    Route::post('/pembayaran/simpan', [PembayaranController::class,'simpan']);
-    Route::get('/pembayaran/detail/{id}', [PembayaranController::class,'detail']);
-    Route::get('/pembayaran/edit/{id}', [PembayaranController::class,'edit']);
-    Route::post('/pembayaran/update/{id}', [PembayaranController::class,'update']);
-    Route::get('/pembayaran/hapus/{id}', [PembayaranController::class,'destroy']);
-    Route::get('/pembayaran/download', [PembayaranController::class,'download']);
+    Route::get('/pembayaran', [PembayaranController::class, 'index']);
+    Route::get('/pembayaran/tambah', [PembayaranController::class, 'tambah']);
+    Route::post('/pembayaran/simpan', [PembayaranController::class, 'simpan']);
+    Route::get('/pembayaran/detail/{id}', [PembayaranController::class, 'detail']);
+    Route::get('/pembayaran/edit/{id}', [PembayaranController::class, 'edit']);
+    Route::post('/pembayaran/update/{id}', [PembayaranController::class, 'update']);
+    Route::get('/pembayaran/hapus/{id}', [PembayaranController::class, 'destroy']);
+    Route::get('/pembayaran/download', [PembayaranController::class, 'download']);
 
-    Route::get('/log', [LogController::class,'index']);
+    Route::get('/log', [LogController::class, 'index']);
 });
