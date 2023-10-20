@@ -247,9 +247,15 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link ">
+            <a href="{{ url('user') }}" class="nav-link ">
               <i class="bi-person-circle" height="16"></i>
               Akun
+            </a>
+          </li>
+          <li>
+            <a href="{{ url('log') }}" class="nav-link ">
+              <i class="bi-journal-text" height="16"></i>
+              Log Activity
             </a>
           </li>
         </ul>
