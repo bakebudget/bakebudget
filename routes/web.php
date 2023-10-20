@@ -31,6 +31,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/kue', [KueController::class, 'index']);
     Route::get('/kue/add', [KueController::class, 'add']);
+    Route::post('kue/addsubmit', [KueController::class, 'addsubmit']);
+    Route::get('kue/hapus/{kode_kue}', [KueController::class, 'destroy']);
+
 
     Route::get('/pembayaran', [PembayaranController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index']);
@@ -38,11 +41,9 @@ Route::middleware('auth')->group(function () {
     /**
      * Routing Pembayaran
      */
-    Route::get('/pembayaran', [PembayaranController::class,'index']);
-    Route::get('/pembayaran/tambah', [PembayaranController::class,'tambah']);
-    Route::post('/pembayaran/simpan', [PembayaranController::class,'simpan']);
-    Route::get('/pembayaran/detail/{id}', [PembayaranController::class,'detail']);
-    Route::get('/pembayaran/hapus/{id}', [PembayaranController::class,'destroy']);
+    Route::get('/pembayaran', [PembayaranController::class, 'index']);
+    Route::get('/pembayaran/tambah', [PembayaranController::class, 'tambah']);
+    Route::post('/pembayaran/simpan', [PembayaranController::class, 'simpan']);
+    Route::get('/pembayaran/detail/{id}', [PembayaranController::class, 'detail']);
+    Route::get('/pembayaran/hapus/{id}', [PembayaranController::class, 'destroy']);
 });
-
-

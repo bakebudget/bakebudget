@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kue', function (Blueprint $table) {
-            $table->char('kode_kue',4)->nullable(false)->primary();
-            $table->string('nama_kue',50);
+            $table->char('kode_kue', 4)->nullable(false)->primary();
+            $table->string('nama_kue', 50);
             $table->string('gambar_kue', 255);
             $table->unsignedInteger('stok_kue');
             $table->unsignedInteger('harga_kue');

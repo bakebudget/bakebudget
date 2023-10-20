@@ -30,6 +30,6 @@ class Kue extends Model
     protected $table = 'kue';
     protected $primaryKey = 'kode_kue';
     protected $keyType = 'string';
-    protected $fillable = ['nama_kue', 'gambar_kue', 'stok_kue', 'harga_kue'];
+    protected $fillable = ['kode_kue', 'nama_kue', 'gambar_kue', 'stok_kue', 'harga_kue'];
     public $timestamps = false;
 }

@@ -30,9 +30,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $x = 1;  ?>
                         @foreach ($kue as $k)
                         <tr>
-                            <th scope="row">{{ $k->kode_kue }}</th>
+                            <th scope="row">{{ $x++ }}</th>
                             <td>{{ $k->nama_kue }}</td>
                             <td>{{ $k->stok_kue }}</td>
                             <td>{{ $k->harga_kue }}</td>
@@ -46,8 +47,11 @@
                                 <!-- {{ $k->gambar_kue }} -->
                             </td>
                             <td>
+                                <!-- tombol detail -->
                                 <a href="{{ url('/kue',['detail', $k->kode_kue]) }}"><i class="bi-eye"></i></a>
-                                <a href=""><i class="bi-trash"></i></a>
+                                <!-- tombol hapus -->
+                                <a href="{{ url('/kue',['hapus', $k->kode_kue]) }}" onclick="confirm('Yakin ingin menghapus data ini?')"><i class="bi-trash"></i></a>
+                                <!-- tombol edit -->
                                 <a href=""><i class="bi-pencil-square"></i></a>
                             </td>
                         </tr>
