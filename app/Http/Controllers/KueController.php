@@ -30,7 +30,6 @@ class KueController extends Controller
             'gambar_kue' => 'mimes:png,jpg,jpeg,csv,txt,pdf',
         ]);
 
-
         if ($data) :
 
             $file = $request->file('gambar_kue');
@@ -40,20 +39,19 @@ class KueController extends Controller
                 $filename = time() . '_' . $file->getClientOriginalName();
             }
             $generatedId = DB::select('SELECT procedure_kodekue() AS generated_id')[0]->generated_id;
-
+            // dd($generatedId);
 
             $data['kode_kue'] = $generatedId;
             $data['gambar_kue'] = $filename;
-
-
+            // dd($data);
             $dataInsert = Kue::query()->create($data);
             if ($dataInsert) :
                 if ($file) {
                     $file->storePubliclyAs('', $filename, 'public');
                 }
-                return redirect('/kue')->with('success', 'Stok baru berhasil ditambah :D');
+                return redirect('/kue')->with('success', 'Stok berhasil ditambah! :D');
             else :
-                return redirect('/kue/add')->with('error', 'Stok baru gagal ditambah :(');
+                return redirect('/kue/add')->with('error', 'Stok gagal ditambah.. :(');
             endif;
         endif;
     }
@@ -69,37 +67,15 @@ class KueController extends Controller
         } else
             return redirect()->to('/kue')->with('error', 'Data kue gagal dihapus :0');
     }
+
+    public function detail(Request $request)
+    {
+        $id = $request->kode_kue;
+
+        $kue = [
+            'kue' => Kue::find($id)
+        ];
+
+        return view('kue.detail', $kue);
+    }
 }
-    // public function store(Request $request) 
-    // {
-    //     $validasiData = $request->validate([
-    //         'nama_kue' => 'required',
-    //         'stok_kue' => 'required',
-    //         'harga_kue' => 'required',
-    //     ]);
-
-    //     Kue::create($validasiData);
-
-    //     return redirect()->route('kue.index')->with('success', 'Data added succesfully');
-    // }
-
-    // public function update(Request $request, Kue $kue)
-    // {
-    //     // validasi dan update data kue
-    //     $validasiData = $request->validate([
-    //         'name' => 'required',
-    //         'description' => 'required',
-    //     ]);
-
-    //     $kue->update($validasiData);
-
-    //     return redirect()->route('kue.index')->with('success', 'Kue updated successfully');
-    // }
-
-    // public function destroy(Kue $kue)
-    // {
-    //     // menghapus data kue
-    //     $kue->delete();
-
-    //     return redirect()->route('kue.index')->with('success', 'Kue deleted successfully');
-    // }

@@ -25,27 +25,17 @@
                             <th scope="col">Nama Kue</th>
                             <th scope="col">Stok Kue</th>
                             <th scope="col">Harga Kue</th>
-                            <th scope="col">Gambar Kue</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $x = 1;  ?>
+
                         @foreach ($kue as $k)
                         <tr>
-                            <th scope="row">{{ $x++ }}</th>
+                            <th scope="row">{{ $k->kode_kue }}</th>
                             <td>{{ $k->nama_kue }}</td>
                             <td>{{ $k->stok_kue }}</td>
                             <td>{{ $k->harga_kue }}</td>
-                            <td>
-                                @if($k)
-                                <img src="data:{{ $k->jpg}};base64,{{ base64_encode($k->gambar_kue) }}>" alt="">
-                                @else
-                                <p>Image not found</p>
-                                @endif
-                                <!-- gak tau dari ourfriend  -->
-                                <!-- {{ $k->gambar_kue }} -->
-                            </td>
                             <td>
                                 <!-- tombol detail -->
                                 <a href="{{ url('/kue',['detail', $k->kode_kue]) }}"><i class="bi-eye"></i></a>
