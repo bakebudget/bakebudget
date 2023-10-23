@@ -78,4 +78,52 @@ class KueController extends Controller
 
         return view('kue.detail', $kue);
     }
+
+    public function edit (Request $request) 
+    {
+        $id = $request->kode_kue;
+        $kue = [
+            'kue' => Kue::find($id)
+        ];
+
+        return view('kue.edit', $kue);
+    }
+
+    public function update(Request $request) 
+    {
+        $kue = $request->validate ([
+            'nama_kue' => 'required',
+            'stok_kue' => 'required',
+            'harga_kue' => 'required|integer',
+            'gambar_kue' => 'mimes:png,jpg,jpeg,csv,txt,pdf',
+        ]);
+
+        $file = $request->file('gambar_kue');
+        $oldfile = $request->file('oldfile');
+        $filename = '';
+
+        if ($file) {
+            $filename = $file;
+        }
+        if ($file !== $oldfile) {
+            $filename = time() . '_' . $file->getClientOriginalName();
+        }
+
+        $kue['gambar_kue'] = $filename;
+        $update = Kue::query()->findOrFail($request->kode_kue);
+
+        if ($oldfile) {
+            Storage::disk('public')->delete($oldfile);
+        }
+
+        if ($update->fill($request->except('filename'))) {
+            if ($filename) {
+                $update->fill($file);
+                $file->storePubliclyAs('', $filename, 'public');
+            }
+            $update->save();
+            return redirect()->to('/kue')->with('success', "List Stok Kue berhasil diupdate");
+        } else
+            return redirect()->back()->with('error', "List Stok Kue gagal diupdate");
+    }
 }

@@ -29,16 +29,18 @@ class PembayaranController extends Controller
         return view("pembayaran.index", $data);
     }
 
-    public function tambah(){
-        $data =[
+    public function tambah()
+    {
+        $data = [
             'metode' => MetodePembayaran::all('*'),
-            'rencana'=> RencanaPengeluaran::all('*'),
+            'rencana' => RencanaPengeluaran::all('*'),
         ];
 
-        return view("pembayaran.tambah" , $data);
+        return view("pembayaran.tambah", $data);
     }
 
-    public function simpan(Request $request){
+    public function simpan(Request $request)
+    {
         $data = $request->validate([
             'tanggal_pembayaran' => 'required',
             'kode_metode' => 'required',
@@ -49,7 +51,7 @@ class PembayaranController extends Controller
             'nominal' => 'required|integer',
         ]);
 
-        
+
 
         // File upload location
         // $location = 'uploads';
@@ -58,13 +60,13 @@ class PembayaranController extends Controller
         // $file->move($location,$filename);
 
 
-        if ($data):
-            
+        if ($data) :
+
             $file = $request->file('bukti_pembayaran');
             $filename = '';
 
-            if($file) {
-            $filename = time() . '_' . $file->getClientOriginalName();
+            if ($file) {
+                $filename = time() . '_' . $file->getClientOriginalName();
             }
             $generatedId = DB::select('SELECT procedure_kode() AS generated_id')[0]->generated_id;
 
@@ -73,12 +75,12 @@ class PembayaranController extends Controller
             $data['bukti_pembayaran'] = $filename;
             // dd($data);
             $dataInsert = Pembayaran::query()->create($data);
-            if ($dataInsert):
-                if($file){
-                $file->storePubliclyAs('', $filename, 'public');
+            if ($dataInsert) :
+                if ($file) {
+                    $file->storePubliclyAs('', $filename, 'public');
                 }
                 return redirect('/pembayaran')->with('success', 'Data pembayaran baru berhasil ditambah');
-            else:
+            else :
                 return redirect('/pemayaran/tambah')->with('error', 'Data pembayaran baru Gagal ditambah');
             endif;
         endif;
@@ -95,10 +97,11 @@ class PembayaranController extends Controller
 
         // dd($data['pembayaran']);
 
-        return view('pembayaran.detail' , $data);
+        return view('pembayaran.detail', $data);
     }
 
-    public function edit(Request $request){
+    public function edit(Request $request)
+    {
         $id = $request->id;
         $data = [
             'metode' => MetodePembayaran::all(),
@@ -106,9 +109,10 @@ class PembayaranController extends Controller
             'pembayaran' => Pembayaran::with(['rencana_pengeluaran', 'metode_pembayaran'])->find($id)
         ];
 
-        return view('pembayaran.edit' , $data);
+        return view('pembayaran.edit', $data);
     }
-    public function update(Request $request, ){
+    public function update(Request $request,)
+    {
         $data = $request->validate([
             'tanggal_pembayaran' => 'required',
             'kode_metode' => 'required',
@@ -123,29 +127,29 @@ class PembayaranController extends Controller
         $oldfile = $request->file('oldfile');
         $filename = '';
 
-        if($file){
+        if ($file) {
             $filename = $file;
         }
-        if($file !== $oldfile){
+        if ($file !== $oldfile) {
             $filename = time() . '_' . $file->getClientOriginalName();
         }
 
         $data['bukti_pembayaran'] = $filename;
         $update = Pembayaran::query()->find($request->id);
 
-        if($oldfile){
+        if ($oldfile) {
             Storage::disk('public')->delete($oldfile);
         }
-        
+
         if ($update->fill($data)->save()) {
-            if($filename){
-            $file->storePubliclyAs('', $filename, 'public');
-        }
+            if ($filename) {
+                $file->storePubliclyAs('', $filename, 'public');
+            }
             return redirect()->to('/pembayaran')->with('success', "Data Pembayaran berhasil diupdate");
         } else
             return redirect()->back()->with('error', "Data Pembayaran gagal diupdate");
     }
-    
+
 
     public function destroy(Pembayaran $pembayaran, Request $request)
     {
@@ -154,12 +158,13 @@ class PembayaranController extends Controller
             Storage::disk('public')->delete($curr_pembayaran->file);
         }
         if ($curr_pembayaran->delete()) {
-            return redirect()->to('/pembayaran')->with('success','Data Pembayaran berhasil dihapus');
+            return redirect()->to('/pembayaran')->with('success', 'Data Pembayaran berhasil dihapus');
         } else
-            return redirect()->to('/pembayaran')->with('error','Data Pembayaran gagal dihapus');
+            return redirect()->to('/pembayaran')->with('error', 'Data Pembayaran gagal dihapus');
     }
 
-    public function download(Request $request){
+    public function download(Request $request)
+    {
         return Storage::disk('public')->download($request->path);
     }
 }

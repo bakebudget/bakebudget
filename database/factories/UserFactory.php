@@ -19,9 +19,9 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'username' => 'admin',
+            'username' => 'testing',
             'level' => 'admin',
-            'password' => Hash::make('winjigantenk'),
+            'password' => Hash::make('saesaesae'),
             'foto' => 'admin.png'
         ];
     }

@@ -40,9 +40,10 @@
                                 <!-- tombol detail -->
                                 <a href="{{ url('/kue',['detail', $k->kode_kue]) }}"><i class="bi-eye"></i></a>
                                 <!-- tombol hapus -->
-                                <a href="{{ url('/kue',['hapus', $k->kode_kue]) }}" onclick="confirm('Yakin ingin menghapus data ini?')"><i class="bi-trash"></i></a>
+                                <a href="{{ url('/kue',['hapus', $k->kode_kue]) }}" onclick="confirm('Yakin ingin menghapus data ini?')">
+                                <i class="bi-trash"></i></a>
                                 <!-- tombol edit -->
-                                <a href=""><i class="bi-pencil-square"></i></a>
+                                <a href="{{ url('/kue', ['edit', $k->kode_kue]) }}"><i class="bi-pencil-square"></i></a>
                             </td>
                         </tr>
                         @endforeach
