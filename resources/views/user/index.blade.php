@@ -23,8 +23,7 @@
                         <tr>
                             <th scope="col">Nama Akun</th>
                             <th scope="col">Level</th>
-                            <th scope="col">Password</th>
-                            <th scope="col">Gambar Akun</th>
+                            <th scope="col">Foto</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -33,8 +32,13 @@
                         <tr>
                             <th scope="row">{{ $u->username }}</th>
                             <td>{{ $u->level }}</td>
-                            <td>{{ $u->password }}</td>
-                            <td>{{ $u->foto }}</td>
+                            <td>
+                                {{-- fixed show image -nad --}}
+                                @if($u->foto)
+                                <img src="{{ Storage::url('public/' . $u->foto) }}" class="img" alt="" height="100" width="100">
+                                @else
+                                <p>Image not found</p>
+                                @endif</td>
                             <td>
                                 <a href="{{ url('/user',['detail', $u->username]) }}"><i class="bi-eye"></i></a>
                                 <button data-id="{{ $u->username }}" class="btn hapusButton"><i class="bi-trash"></i></button>
