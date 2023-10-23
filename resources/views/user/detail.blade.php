@@ -24,7 +24,8 @@
                     </div>
                     <div class="list-group-item">
                         <h5 class="mb-1">Foto Profil Akun</h5>
-                        <a href="{{ url("user?path=$user->foto", ["download"]) }}" class="btn btn-success">Download File</a>
+                        {{-- <a href="{{ url("user?path=$user->foto", ["download"]) }}" class="btn btn-success">Download File</a> --}}
+                        <img src="{{ Storage::url('public/' . $k->gambar_kue) }} }}" alt="">
                     </div>
                 </div>
             </div>

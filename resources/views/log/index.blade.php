@@ -18,13 +18,18 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php 
+                               $x = 1; 
+                                ?>
+                            @foreach($logs as $l)
                             <tr>
-                                <td>1</td>
-                                <td>Data1</td>
-                                <td>Data2</td>
-                                <td>Data3</td>
-                                <td>Data4</td>
+                                <td>{{ $x++ }}</td>
+                                <td>{{ $l->username }}</td>
+                                <td>{{ $l->ip_address }}</td>
+                                <td>{{ $l->action }}</td>
+                                <td>{{ $l->log }}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

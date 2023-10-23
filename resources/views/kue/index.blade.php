@@ -38,13 +38,15 @@
                             <td>{{ $k->stok_kue }}</td>
                             <td>{{ $k->harga_kue }}</td>
                             <td>
-                                @if($k)
-                                <img src="data:{{ $k->jpg}};base64,{{ base64_encode($k->gambar_kue) }}>" alt="">
+
+                                {{-- fixed show image kue -nad --}}
+                                @if($k->gambar_kue)
+                                <img src="{{ Storage::url('public/' . $k->gambar_kue) }}" class="img" alt="" height="50">
                                 @else
                                 <p>Image not found</p>
                                 @endif
                                 <!-- gak tau dari ourfriend  -->
-                                <!-- {{ $k->gambar_kue }} -->
+                                {{-- {{ $k->gambar_kue }}  --}}
                             </td>
                             <td>
                                 <!-- tombol detail -->

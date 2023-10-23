@@ -10,12 +10,14 @@ return new class extends Migration
      * Run the migrations.
      */
 
-    private $spName = "sp_log";
+    // private $userIpAddress = request()->ip();
+
+    private $sp = "sp_log";
     public function up(): void
     {
-        DB::unprepared("DROP PROCEDURE IF EXISTS $this->spName");
+        DB::unprepared("DROP PROCEDURE IF EXISTS $this->sp");
         DB::unprepared(
-            "CREATE PROCEDURE $this->spName
+            "CREATE PROCEDURE $this->sp
             (
                 Username VARCHAR(100),
                 Ip_address VARCHAR(100),
@@ -36,6 +38,6 @@ return new class extends Migration
     public function down(): void
     {
         //
-        DB::unprepared("DROP PROCEDURE IF EXISTS $this->spName");
+        DB::unprepared("DROP PROCEDURE IF EXISTS $this->sp");
     }
 };

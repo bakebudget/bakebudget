@@ -36,7 +36,11 @@
                     </div>
                     <div class="list-group-item">
                         <h5 class="mb-1">Nomor Rekening Penerima</h5>
+                        @if($pembayaran->nomor_rekening_penerima)
                         <p class="mb-1">{{ $pembayaran->nomor_rekening_penerima }}</p>
+                        @else
+                        <p class="mb-1">-</p>
+                        @endif
                     </div>
                     <div class="list-group-item">
                         <h5 class="mb-1">Nominal</h5>
@@ -44,7 +48,11 @@
                     </div>
                     <div class="list-group-item">
                         <h5 class="mb-1">Bukti Pembayaran</h5>
+                        @if($pembayaran->bukti_pembayaran)
                         <a href="{{ url("pembayaran?path=$pembayaran->bukti_pembayaran", ["download"]) }}" class="btn btn-success">Download File</a>
+                        @else
+                        <p class="mb-1">No file</p>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -14,6 +14,7 @@ class PembayaranController extends Controller
     //
     public function index()
     {
+        //menyimpan data pembayaran
         $data = [
             'metode_pembayaran' => MetodePembayaran::all(),
             'pengeluaran' => RencanaPengeluaran::all(),

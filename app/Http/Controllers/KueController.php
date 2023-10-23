@@ -12,6 +12,7 @@ class KueController extends Controller
     public function index()
     {
         $kue = Kue::all(); // mengambil data kue
+        // dd($kue)
         return view('kue.index', ['kue' => $kue]);
         // return view('kue.index', $kue);
     }
