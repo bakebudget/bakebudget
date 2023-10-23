@@ -25,15 +25,14 @@
                             <th scope="col">Nama Kue</th>
                             <th scope="col">Stok Kue</th>
                             <th scope="col">Harga Kue</th>
-                            <th scope="col">Gambar Kue</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $x = 1;  ?>
+
                         @foreach ($kue as $k)
                         <tr>
-                            <th scope="row">{{ $x++ }}</th>
+                            <th scope="row">{{ $k->kode_kue }}</th>
                             <td>{{ $k->nama_kue }}</td>
                             <td>{{ $k->stok_kue }}</td>
                             <td>{{ $k->harga_kue }}</td>

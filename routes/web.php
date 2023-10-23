@@ -35,8 +35,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/kue', [KueController::class, 'index']);
     Route::get('/kue/add', [KueController::class, 'add']);
-    Route::post('kue/addsubmit', [KueController::class, 'addsubmit']);
-    Route::get('kue/hapus/{kode_kue}', [KueController::class, 'destroy']);
+    Route::post('/kue/addsubmit', [KueController::class, 'addsubmit']);
+    Route::get('/kue/hapus/{kode_kue}', [KueController::class, 'destroy']);
+    Route::get('kue/detail/{kode_kue}', [KueController::class, 'detail']);
 
     Route::get('/user', [UserController::class, 'index']);
     Route::get('/user/tambah', [UserController::class, 'tambah']);

@@ -29,6 +29,11 @@ return new class extends Migration
         IF next_number IS NULL THEN
             SET next_number = 1;
         ELSE
+
+        -- Check if next_number is NULL (no records found with 'T' prefix)
+        IF next_number IS NULL THEN
+            SET next_number = 1;
+        ELSE
         -- Increment the number by 1
         SET next_number = next_number + 1;
         END IF;

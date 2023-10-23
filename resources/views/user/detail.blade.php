@@ -16,11 +16,11 @@
                 <div class="list-group">
                     <div class="list-group-item">
                         <h5 class="mb-1">Nama Akun</h5>
-                        <p class="mb-1">{{ $username->username }}</p>
+                        <p class="mb-1">{{ $user->username }}</p>
                     </div>
                     <div class="list-group-item">
                         <h5 class="mb-1">Level</h5>
-                        <p class="mb-1">{{ $level->level }}</p>
+                        <p class="mb-1">{{ $user->level }}</p>
                     </div>
                     <div class="list-group-item">
                         <h5 class="mb-1">Foto Profil Akun</h5>
