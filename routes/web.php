@@ -6,6 +6,8 @@ use App\Http\Controllers\LogController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\JenisPengeluaranController;
+use App\Models\JenisPengeluaran;
 use Doctrine\DBAL\Schema\Index;
 use Illuminate\Support\Facades\Route;
 
@@ -65,4 +67,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/pembayaran/download', [PembayaranController::class, 'download']);
 
     Route::get('/log', [LogController::class, 'index']);
+
+    Route::get('/jenis_pengeluaran', [JenisPengeluaranController::class, 'index']);
 });
