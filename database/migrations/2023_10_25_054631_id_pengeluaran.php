@@ -9,7 +9,7 @@ return new class extends Migration {
   /**
    * Run the migrations.
    */
-  private $spName = 'procedure_kodekue';
+  private $spName = 'function_id_pengeluaran';
 
   public function up(): void
   {
@@ -22,7 +22,7 @@ return new class extends Migration {
         DECLARE next_number INT;
     
         -- Mencari kode maximum
-        SELECT MAX(CAST(SUBSTRING(kode_kue, 2) AS SIGNED)) INTO next_number FROM kue WHERE kode_kue LIKE 'K%';
+        SELECT MAX(CAST(SUBSTRING(id_pengeluaran, 2) AS SIGNED)) INTO next_number FROM rencana_pengeluaran WHERE id_pengeluaran LIKE 'R%';
 
         -- check jika table kosong maka angka selanjutnya 1
         IF next_number IS NULL THEN
@@ -32,7 +32,7 @@ return new class extends Migration {
         END IF;
     
         -- membuat kode baru
-        SET new_id = CONCAT('K', LPAD(next_number, 3, '0'));
+        SET new_id = CONCAT('R', LPAD(next_number, 3, '0'));
     
         RETURN new_id;
     END;");

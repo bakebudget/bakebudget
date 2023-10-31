@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('rencana_pengeluaran', function (Blueprint $table) {
             $table->char('id_pengeluaran',4)->nullable(false)->primary();
             $table->char('kode_jenis_pengeluaran',4)->nullable(false);
+            $table->unsignedInteger('nominal')->nullable(false);
             $table->enum('status',['LUNAS', 'BELUM LUNAS']);
             $table->string('deskripsi',255);
 
