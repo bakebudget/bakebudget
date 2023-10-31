@@ -55,6 +55,9 @@
                     </tbody>
                 </table>
             </div>
+            <div class="card-footer">
+                {{ $pembayaran->links() }}
+            </div>
         </div>
     </div>
 @endsection

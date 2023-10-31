@@ -15,15 +15,20 @@ return new class extends Migration
     public function up(): void
     {
         DB::unprepared("DROP FUNCTION IF EXISTS $this->spName;");
+  
 
-
-        DB::unprepared("CREATE FUNCTION $this->spName() RETURNS VARCHAR(4)
+    DB::unprepared("CREATE FUNCTION $this->spName() RETURNS VARCHAR(4)
     BEGIN
         DECLARE new_id VARCHAR(4);
         DECLARE next_number INT;
     
         -- Find the maximum existing number for the 'T' IDs
         SELECT MAX(CAST(SUBSTRING(kode_kue, 2) AS SIGNED)) INTO next_number FROM kue WHERE kode_kue LIKE 'K%';
+
+        -- Check if next_number is NULL (no records found with 'T' prefix)
+        IF next_number IS NULL THEN
+            SET next_number = 1;
+        ELSE
 
         -- Check if next_number is NULL (no records found with 'T' prefix)
         IF next_number IS NULL THEN

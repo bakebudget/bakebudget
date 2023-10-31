@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('log_aplikasi', function (Blueprint $table) {
             $table->id('id_log');
             $table->string('username',255);
-            $table->string('ip_address',255);
+            $table->binary('ip_address');
             $table->enum('action',['INSERT','UPDATE','DELETE']);
             $table->text('log');
             $table->dateTime('created_at')->useCurrent();

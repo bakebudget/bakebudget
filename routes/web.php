@@ -21,8 +21,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/landingpage', function () {
-    return view('landingpage.index');
+    return view('landing.index');
 });
+
+Route::get('/loginsementara', [LoginController::class, 'indexsementara']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'logincheck'])->name('login');

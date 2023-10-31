@@ -37,6 +37,17 @@
                             <td>{{ $k->stok_kue }}</td>
                             <td>{{ $k->harga_kue }}</td>
                             <td>
+
+                                {{-- fixed show image kue -nad --}}
+                                @if($k->gambar_kue)
+                                <img src="{{ Storage::url('public/' . $k->gambar_kue) }}" class="img" alt="" height="50">
+                                @else
+                                <p>Image not found</p>
+                                @endif
+                                <!-- gak tau dari ourfriend  -->
+                                {{-- {{ $k->gambar_kue }}  --}}
+                            </td>
+                            <td>
                                 <!-- tombol detail -->
                                 <a href="{{ url('/kue',['detail', $k->kode_kue]) }}"><i class="bi-eye"></i></a>
                                 <!-- tombol hapus -->

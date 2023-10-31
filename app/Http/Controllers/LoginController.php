@@ -19,6 +19,12 @@ class LoginController extends Controller
         //
         return view('login.form');
     }
+    public function indexsementara()
+    {
+        //
+        return view('login.test');
+    }
+
 
     public function logincheck(Request $request)
     {
@@ -33,10 +39,10 @@ class LoginController extends Controller
         if (Auth::attempt($akun)) {
             // dd($akun);
             $request->session()->regenerate();
-            if (Auth::user()->level == 'admin') :
-                return redirect()->to('/')->with('success', 'Anda berhasil login!');
-            else :
-                return redirect()->to('/')->with('success', 'Anda berhasil login!');
+            if (Auth::user()->level == 'admin'):
+                return redirect()->to('/')->with('success','Anda berhasil Login!');
+            else:
+                return redirect()->to('/')->with('success','Anda berhasil Login!');;
             endif;
         }
         return redirect('/login')->with('error', 'Password/Username yang anda masukkan salah!');

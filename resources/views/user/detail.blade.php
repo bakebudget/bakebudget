@@ -24,7 +24,11 @@
                     </div>
                     <div class="list-group-item">
                         <h5 class="mb-1">Foto Profil Akun</h5>
-                        <a href="{{ url("user?path=$user->foto", ["download"]) }}" class="btn btn-success">Download File</a>
+                        @if($user->foto)
+                                <img src="{{ Storage::url('public/' . $user->foto) }}" class="img" alt="" height="100" width="100">
+                                @else
+                                <p>Image not found</p>
+                                @endif</td>
                     </div>
                 </div>
             </div>

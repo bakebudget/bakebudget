@@ -14,7 +14,9 @@ class PembayaranController extends Controller
     //
     public function index()
     {
+        //menyimpan data pembayaran
         $data = [
+            
             'metode_pembayaran' => MetodePembayaran::all(),
             'pengeluaran' => RencanaPengeluaran::all(),
             'pembayaran' => Pembayaran::orderBy('tanggal_pembayaran', 'desc')->with('rencana_pengeluaran')->paginate(5)

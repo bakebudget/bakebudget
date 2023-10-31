@@ -9,8 +9,10 @@ class LogController extends Controller
 {
     //
     public function index(){
-        $logs = LogAplikasi::all();
+        $logs = [
+            'logs' => LogAplikasi::all()
+        ];
 
-        return view("log.index");
+        return view("log.index", $logs);
     }
 }
