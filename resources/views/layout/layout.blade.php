@@ -92,7 +92,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link ">
+            <a href="{{ url('rencanapengeluaran') }}" class="nav-link ">
               <i class="bi-journals" height="16"></i>
               Rencana Pengeluaran
             </a>
@@ -113,6 +113,12 @@
             <a href="{{ url('log') }}" class="nav-link ">
               <i class="bi-journal-text" height="16"></i>
               Log Activity
+            </a>
+          </li>
+          <li>
+            <a href="{{ url('jenis_pengeluaran') }}" class="nav-link ">
+              <i class="bi-bag-plus" height="16"></i>
+              Jenis Pengeluaran
             </a>
           </li>
         </ul>

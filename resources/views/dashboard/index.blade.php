@@ -27,6 +27,7 @@
     <h6 style="color: rgb(132, 76, 76);">Total User</h6>
     <h4 style="color: rgb(0, 0, 0);">{{ $user }}</h4>    
   </a>
+  
   <div class="col c c-3 m-4"></div>
   <div class="col c c-4 m-4"></div>
 </div>

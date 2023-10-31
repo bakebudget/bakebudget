@@ -3,9 +3,12 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KueController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\RencanaPengeluaranController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\JenisPengeluaranController;
+use App\Models\JenisPengeluaran;
 use Doctrine\DBAL\Schema\Index;
 use Illuminate\Support\Facades\Route;
 
@@ -66,5 +69,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/pembayaran/hapus/{id}', [PembayaranController::class, 'destroy']);
     Route::get('/pembayaran/download', [PembayaranController::class, 'download']);
 
+    /**
+     * Routing Rencana Pengeluaran
+     */
+    Route::get('/rencanapengeluaran', [RencanaPengeluaranController::class,'index']);
+    Route::get('/rencanapengeluaran/tambah', [RencanaPengeluaranController::class,'tambah']);
+    Route::post('/rencanapengeluaran/simpan', [RencanaPengeluaranController::class,'simpan']);
+    Route::get('/rencanapengeluaran/detail/{id}', [RencanaPengeluaranController::class,'detail']);
+    Route::get('/rencanapengeluaran/hapus/{id}', [RencanaPengeluaranController::class, 'destroy']);
+    Route::get('/rencanapengeluaran/edit/{id}', [RencanaPengeluaranController::class, 'edit']);
+    Route::post('/rencanapengeluaran/update/{id}', [RencanaPengeluaranController::class, 'update']);
+
     Route::get('/log', [LogController::class, 'index']);
+
+    Route::get('/jenis_pengeluaran', [JenisPengeluaranController::class, 'index']);
 });

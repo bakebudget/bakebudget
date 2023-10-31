@@ -53,17 +53,8 @@ class PembayaranController extends Controller
             'nominal' => 'required|integer',
         ]);
 
-
-
-        // File upload location
-        // $location = 'uploads';
-
-        // Upload file
-        // $file->move($location,$filename);
-
-
-        if ($data) :
-
+        if ($data):
+            
             $file = $request->file('bukti_pembayaran');
             $filename = '';
 
@@ -121,7 +112,7 @@ class PembayaranController extends Controller
             'id_pengeluaran' => 'required',
             'nama_penerima' => 'required',
             'bukti_pembayaran' => 'mimes:png,jpg,jpeg,csv,txt,pdf',
-            // 'nomor_rekening_penerima' => 'integer',
+            'nomor_rekening_penerima' => 'integer',
             'nominal' => 'required|integer',
         ]);
 
