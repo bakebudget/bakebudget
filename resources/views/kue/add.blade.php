@@ -19,7 +19,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="stok_kue" class="form-label">Stok Kue</label>
-                    <input type="text" name="stok_kue" class="form-control" id="stok_kue" placeholder="">
+                    <input type="number" name="stok_kue" class="form-control" id="stok_kue" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="harga_kue" class="form-label">Harga Kue</label>

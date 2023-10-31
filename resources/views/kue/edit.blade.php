@@ -4,7 +4,7 @@
         <h3 class="judulformkue">Edit Stok Kue</h1>
     </div>
     <div class="button-back">
-        <button type="button" class="btn btn-primary">Back</button>
+        <a href="/kue"><button type="button" class="btn btn-primary">Back</button></a>
     </div>
     <div class="card">
         <div class="card-header">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="stok_kue" class="form-label">Stok Kue</label>
-                    <input type="text" name="stok_kue" class="form-control" id="stok_kue" value="{{ $kue->stok_kue }}">
+                    <input type="number" name="stok_kue" class="form-control" id="stok_kue" value="{{ $kue->stok_kue }}">
                 </div>
                 <div class="mb-3">
                     <label for="harga_kue" class="form-label">Harga Kue</label>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="formFile" class="form-label">Default file input example</label>
+                    <label for="formFile" class="form-label">Gambar Kue</label>
                     <input class="form-control" name="gambar_kue" type="file" id="formFile"
                         value="{{ $kue->gambar_kue }}">
                 </div>

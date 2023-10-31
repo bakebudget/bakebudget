@@ -117,12 +117,10 @@ class KueController extends Controller
             Storage::disk('public')->delete($oldfile);
         }
 
-        if ($update->fill($request->except('filename'))) {
+        if ($update->fill($kue)->save()) {
             if ($filename) {
-                $update->fill($file);
                 $file->storePubliclyAs('', $filename, 'public');
             }
-            $update->save();
             return redirect()->to('/kue')->with('success', "List Stok Kue berhasil diupdate");
         } else
             return redirect()->back()->with('error', "List Stok Kue gagal diupdate");
