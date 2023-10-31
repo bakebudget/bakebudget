@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\JenisPengeluaran;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * App\Models\RencanaPengeluaran
@@ -28,6 +30,11 @@ class RencanaPengeluaran extends Model
     protected $table = 'rencana_pengeluaran';
     protected $primaryKey = 'id_pengeluaran';
     protected $keyType = 'string';
-    protected $fillable = ['kode_jenis_pengeluaran', 'status', 'deskripsi'];
+    protected $fillable = ['id_pengeluaran','kode_jenis_pengeluaran', 'status', 'deskripsi', 'nominal'];
     public $timestamps = false;
+
+    function jenis_pengeluaran(): BelongsTo
+    {
+        return $this->belongsTo(JenisPengeluaran::class,'kode_jenis_pengeluaran','kode_jenis_pengeluaran');
+    }
 }

@@ -14,18 +14,17 @@
                     </div>
                 </div>
                 <div class="col float-end text-end ml-5">
-                    <a href="/kue/add" class="btn btn-success">Tambah</a>
+                    <a href="/transaksi/add" class="btn btn-success">Tambah</a>
                 </div>
             </div>
             <div class="card-body">
                 <table class="table table-bordered kue">
                     <thead>
                         <tr>
-                            <th scope="col">Kode Kue</th>
-                            <th scope="col">Nama Kue</th>
-                            <th scope="col">Stok Kue</th>
-                            <th scope="col">Harga Kue</th>
-                            <th scope="col">Gambar Kue</th>
+                            <th scope="col">Id</th>
+                            <th scope="col">Kode Metode</th>
+                            <th scope="col">Tanggal Transaksi</th>
+                            <th scope="col">Total</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>

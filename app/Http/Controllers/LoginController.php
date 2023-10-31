@@ -45,7 +45,7 @@ class LoginController extends Controller
                 return redirect()->to('/')->with('success','Anda berhasil Login!');;
             endif;
         }
-        return redirect('/login')->with('error','Password/Username yang anda masukkan salah!');
+        return redirect('/login')->with('error', 'Password/Username yang anda masukkan salah!');
     }
 
     public function logout(Request $request)

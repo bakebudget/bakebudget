@@ -92,7 +92,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link ">
+            <a href="{{ url('rencanapengeluaran') }}" class="nav-link ">
               <i class="bi-journals" height="16"></i>
               Rencana Pengeluaran
             </a>

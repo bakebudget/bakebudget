@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KueController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\RencanaPengeluaranController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
@@ -40,6 +41,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/kue/addsubmit', [KueController::class, 'addsubmit']);
     Route::get('/kue/hapus/{kode_kue}', [KueController::class, 'destroy']);
     Route::get('kue/detail/{kode_kue}', [KueController::class, 'detail']);
+    Route::get('/kue/edit/{kode_kue}', [KueController::class, 'edit']);
+    Route::post('/kue/update/{kode_kue}', [KueController::class, 'update']);
 
     Route::get('/user', [UserController::class, 'index']);
     Route::get('/user/tambah', [UserController::class, 'tambah']);
@@ -65,6 +68,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/pembayaran/update/{id}', [PembayaranController::class, 'update']);
     Route::get('/pembayaran/hapus/{id}', [PembayaranController::class, 'destroy']);
     Route::get('/pembayaran/download', [PembayaranController::class, 'download']);
+
+    /**
+     * Routing Rencana Pengeluaran
+     */
+    Route::get('/rencanapengeluaran', [RencanaPengeluaranController::class,'index']);
+    Route::get('/rencanapengeluaran/tambah', [RencanaPengeluaranController::class,'tambah']);
+    Route::post('/rencanapengeluaran/simpan', [RencanaPengeluaranController::class,'simpan']);
+    Route::get('/rencanapengeluaran/detail/{id}', [RencanaPengeluaranController::class,'detail']);
+    Route::get('/rencanapengeluaran/hapus/{id}', [RencanaPengeluaranController::class, 'destroy']);
+    Route::get('/rencanapengeluaran/edit/{id}', [RencanaPengeluaranController::class, 'edit']);
+    Route::post('/rencanapengeluaran/update/{id}', [RencanaPengeluaranController::class, 'update']);
 
     Route::get('/log', [LogController::class, 'index']);
 
