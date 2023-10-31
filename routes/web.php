@@ -7,6 +7,8 @@ use App\Http\Controllers\RencanaPengeluaranController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\JenisPengeluaranController;
+use App\Models\JenisPengeluaran;
 use Doctrine\DBAL\Schema\Index;
 use Illuminate\Support\Facades\Route;
 
@@ -77,4 +79,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/rencanapengeluaran/update/{id}', [RencanaPengeluaranController::class, 'update']);
 
     Route::get('/log', [LogController::class, 'index']);
+
+    Route::get('/jenis_pengeluaran', [JenisPengeluaranController::class, 'index']);
 });

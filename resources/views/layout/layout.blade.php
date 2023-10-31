@@ -115,6 +115,12 @@
               Log Activity
             </a>
           </li>
+          <li>
+            <a href="{{ url('jenis_pengeluaran') }}" class="nav-link ">
+              <i class="bi-bag-plus" height="16"></i>
+              Jenis Pengeluaran
+            </a>
+          </li>
         </ul>
         <hr>
         <ul class="list-unstyled ps-0">
