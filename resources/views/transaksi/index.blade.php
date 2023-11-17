@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('content')
 <div class="row">
-    <h1 class="judulkue">Stok Kue</h1>
+    <h1 class="judulkue">Transaksi</h1>
     <div class="card">
         <div class="cardkue">
             <div class="row">
@@ -30,29 +30,20 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($kue as $k)
+                        @foreach ($transaksi as $t)
                         <tr>
-                            <th scope="row">{{ $k->kode_kue }}</th>
-                            <td>{{ $k->nama_kue }}</td>
-                            <td>{{ $k->stok_kue }}</td>
-                            <td>{{ $k->harga_kue }}</td>
-                            <td>
-
-                                {{-- fixed show image kue -nad --}}
-                                @if($k->gambar_kue)
-                                <img src="{{ Storage::url('public/' . $k->gambar_kue) }}" class="img" alt="" height="50">
-                                @else
-                                <p>Image not found</p>
-                                @endif
-                            </td>
+                            <th scope="row">{{ $t->id_transaksi }}</th>
+                            <td>{{ $t->kode_metode }}</td>
+                            <td>{{ $t->tanggal_transaksi }}</td>
+                            <td>{{ $t->total }}</td>
                             <td>
                                 <!-- tombol detail -->
-                                <a href="{{ url('/kue',['detail', $k->kode_kue]) }}"><i class="bi-eye"></i></a>
+                                <a href="{{ url('/transaksi',['detail', $t->id_transaksi]) }}"><i class="bi-eye"></i></a>
                                 <!-- tombol hapus -->
-                                <a href="{{ url('/kue',['hapus', $k->kode_kue]) }}" onclick="confirm('Yakin ingin menghapus data ini?')">
+                                <a href="{{ url('/transaksi',['hapus', $t->id_transaksi]) }}" onclick="confirm('Yakin ingin menghapus data ini?')">
                                 <i class="bi-trash"></i></a>
                                 <!-- tombol edit -->
-                                <a href="{{ url('/kue', ['edit', $k->kode_kue]) }}"><i class="bi-pencil-square"></i></a>
+                                <a href="{{ url('/transaksi', ['edit', $t->id_transaksi]) }}"><i class="bi-pencil-square"></i></a>
                             </td>
                         </tr>
                         @endforeach

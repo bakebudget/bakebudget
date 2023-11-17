@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * App\Models\Transaksi
@@ -30,4 +31,9 @@ class Transaksi extends Model
     protected $keyType = 'string';
     protected $fillable = ['kode_metode', 'tanggal', 'total'];
     public $timestamps = false;
+
+    function metode_pembayaran(): BelongsTo
+    {
+        return $this->belongsTo(MetodePembayaran::class, 'kode_metode', 'kode_metode');
+    }
 }

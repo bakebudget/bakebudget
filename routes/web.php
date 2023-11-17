@@ -8,7 +8,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\JenisPengeluaranController;
+use App\Http\Controllers\TransaksiController;
 use App\Models\JenisPengeluaran;
+use App\Models\Transaksi;
 use Doctrine\DBAL\Schema\Index;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +45,9 @@ Route::middleware('auth')->group(function () {
     Route::get('kue/detail/{kode_kue}', [KueController::class, 'detail']);
     Route::get('/kue/edit/{kode_kue}', [KueController::class, 'edit']);
     Route::post('/kue/update/{kode_kue}', [KueController::class, 'update']);
+
+    Route::get('/transaksi', [TransaksiController::class, 'index']);
+    Route::get('/transaksi/add', [TransaksiController::class, 'add']);
 
     Route::get('/user', [UserController::class, 'index']);
     Route::get('/user/tambah', [UserController::class, 'tambah']);
