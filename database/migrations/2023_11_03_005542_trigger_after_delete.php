@@ -17,7 +17,7 @@ return new class extends Migration {
     {
         DB::unprepared(
             "CREATE OR REPLACE TRIGGER $this->triggerName
-            AFTER UPDATE ON pembayaran FOR EACH ROW
+            AFTER DELETE ON pembayaran FOR EACH ROW
             BEGIN
                 -- DECLARE l_username VARCHAR(100);
                 DECLARE l_nama_metode VARCHAR(100);
