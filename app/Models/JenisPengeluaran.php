@@ -24,6 +24,6 @@ class JenisPengeluaran extends Model
     protected $table = 'jenis_pengeluaran';
     protected $primaryKey = 'kode_jenis_pengeluaran';
     protected $keyType = 'string';
-    protected $fillable = ['nama_jenis_pengeluaran'];
+    protected $fillable = ['nama_jenis_pengeluaran' , 'kode_jenis_pengeluaran'];
     public $timestamps = false;
 }
