@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KueController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\MetodePembayaranController;
 use App\Http\Controllers\RencanaPengeluaranController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -79,6 +80,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/rencanapengeluaran/hapus/{id}', [RencanaPengeluaranController::class, 'destroy']);
     Route::get('/rencanapengeluaran/edit/{id}', [RencanaPengeluaranController::class, 'edit']);
     Route::post('/rencanapengeluaran/update/{id}', [RencanaPengeluaranController::class, 'update']);
+
+    /**
+     * Routing metode Pembayaran
+     */
+    Route::get('/metodepembayaran', [MetodePembayaranController::class,'index']);
+    Route::get('/metodepembayaran/tambah', [MetodePembayaranController::class,'tambah']);
+    Route::post('/metodepembayaran/simpan', [MetodePembayaranController::class,'simpan']);
+    Route::get('/metodepembayaran/hapus/{id}', [MetodePembayaranController::class, 'destroy']);
+    Route::get('/metodepembayaran/edit/{id}', [MetodePembayaranController::class, 'edit']);
+    Route::post('/metodepembayaran/update/{id}', [MetodePembayaranController::class, 'update']);
 
     Route::get('/log', [LogController::class, 'index']);
 

@@ -12,12 +12,12 @@ return new class extends Migration {
     // private $userIpAddress = request()->ip();
     // private $username = Auth::user()->username;
 
-    private $triggerName = 'trigger_pembayaran';
+    private $triggerName = 'trigger_update_pembayaran';
     public function up(): void
     {
         DB::unprepared(
             "CREATE OR REPLACE TRIGGER $this->triggerName
-            AFTER INSERT ON pembayaran FOR EACH ROW
+            AFTER UPDATE ON pembayaran FOR EACH ROW
             BEGIN
                 -- DECLARE l_username VARCHAR(100);
                 DECLARE l_nama_metode VARCHAR(100);
@@ -37,7 +37,7 @@ return new class extends Migration {
                 /**
                  * 
                  */
-                CALL sp_log(username, ip, 'INSERT',
+                CALL sp_log(username, ip, 'UPDATE',
                     CONCAT(
                         'id_pembayaran: ', NEW.id_pembayaran,
                         ', metode_pembayaran: ', l_nama_metode,

@@ -64,7 +64,7 @@
   {{-- navbar end --}}
   {{-- <aside> --}}
   <header>
-    <aside style="height:calc(100vh); position: fixed;" class="">
+    <aside style=" position: fixed;" class="">
       <div class="position-sticky sidebar d-flex flex-column flex-shrink-0 p-3 " style="width: 280px; position: relative;">
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
@@ -115,11 +115,26 @@
               Log Activity
             </a>
           </li>
-          <li>
-            <a href="{{ url('jenis_pengeluaran') }}" class="nav-link ">
-              <i class="bi-bag-plus" height="16"></i>
-              Jenis Pengeluaran
-            </a>
+          <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+              Data Master
+            </button>
+            <div class="collapse" id="account-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+                  <a href="{{ url('jenis_pengeluaran') }}" class="link-dark rounded">
+                    <i class="bi-bag-plus mx-2" height="16"></i>
+                    Jenis Pengeluaran
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ url('metodepembayaran') }}" class="link-dark rounded">
+                    <i class="bi-cash mx-2" height="16"></i>
+                    Metode Pembayaran
+                  </a>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
         <hr>
