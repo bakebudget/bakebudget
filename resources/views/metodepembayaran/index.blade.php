@@ -3,7 +3,7 @@
     <div class="row">
 
         <div class="card">
-            <h1>Data Pembayaran</h1>
+            <h1>Metode Pembayaran</h1>
             <div class="row">
                 <div class="col">
                     <div class="input-group col-md-4" style="max-width: 300px; border-right: none;">
@@ -16,38 +16,29 @@
                     </div>
                 </div>
                 <div class="col float-end text-end ml-5">
-                    <a href="{{ url('pembayaran', ['tambah']) }}" class="btn btn-success">Tambah</a>
+                    <a href="{{ url('metodepembayaran', ['tambah']) }}" class="btn btn-success">Tambah</a>
                 </div>
             </div>
             <div class="card-body">
                 <table class="table  table-bordered DataTable">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tanggal Pembayaran</th>
-                            <th scope="col">Nama Penerima</th>
-                            <th scope="col">Perihal</th>
-                            <th scope="col">Nominal</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Kode Metode</th>
+                            <th scope="col">Nama Metode</th>
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $x = 1; ?>
-                        @foreach ($pembayaran as $p)
+                        @foreach ($metode_pembayaran as $m)
                             <tr>
-                                <th scope="row">{{ $x++ }}</th>
-                                <td>{{ $p->tanggal_pembayaran }}</td>
-                                <td>{{ $p->nama_penerima }}</td>
-                                <td>{{ $p->rencana_pengeluaran->deskripsi }}</td>
-                                <td>{{ $p->nominal_pembayaran }}</td>
+                                <td>{{ $m->kode_metode }}</td>
+                                <td>{{ $m->nama_metode }}</td>
                                 <td>
-                                    <a href="{{ url('/pembayaran', ['detail', $p->id_pembayaran]) }}"><i
-                                            class="bi-eye"></i></a>
                                     {{-- tombol hapus --}}
-                                    <button data-id="{{ $p->id_pembayaran }}" class="btn hapusButton"
-                                        data-id="{{ $p->id_pembayaran }}"><i class="bi-trash"></i></button>
+                                    <button data-id="{{ $m->kode_metode }}" class="btn hapusButton"
+                                        data-id="{{ $m->kode_metode }}"><i class="bi-trash"></i></button>
 
-                                    <a href="{{ url('/pembayaran', ['edit', $p->id_pembayaran]) }}"><i
+                                    <a href="{{ url('/metodepembayaran', ['edit', $m->kode_metode]) }}"><i
                                             class="bi-pencil-square"></i></a>
                                 </td>
                             </tr>
@@ -56,7 +47,7 @@
                 </table>
             </div>
             <div class="card-footer">
-                {{ $pembayaran->links() }}
+                {{ $metode_pembayaran->links() }}
             </div>
         </div>
     </div>
@@ -78,7 +69,7 @@
             }).then(({
                     isConfirmed
                 }) => isConfirmed &&
-                axios.get(`/pembayaran/hapus/${id}`)
+                axios.get(`/metodepembayaran/hapus/${id}`)
                 .then(() => Swal.fire({
                     icon: "success",
                     titleText: "Data berhasil dihapus",

@@ -20,7 +20,10 @@
 </div>
 <div class="row mt-3">
   <a class="col c c-1 m-4 p-3" style="  text-decoration: none;" href="{{ url('pembayaran') }}" class="">
-      <h6 style="color: rgb(132, 76, 76);">Total Pengeluaran</h6>  
+      <h6 style="color: rgb(132, 76, 76);">Total Pengeluaran</h6>
+      @foreach ($sum as $s)
+      <h4 style="color: rgb(0, 0, 0);">{{ $s}}</h4>  
+      @endforeach
   </a>
 
   <a class="col c c-1 m-4 p-3" style="  text-decoration: none;" href="{{ url('user') }}" class="">

@@ -12,7 +12,7 @@
                 <h3>Tambah Data Pembayaran</h3>
             </div>
             <div class="card-body">
-                <form action="{{ url('pembayaran',['simpan']) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('pembayaran',['simpan']) }}" method="POST" enctype="multipart/form-data" id="myForm">
                     @csrf
                 <div class="form-group col">
                     <label for="kodeMetode">Metode Pembayaran</label>
@@ -52,7 +52,7 @@
                     <label for="nominal">Nominal</label>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Rp</span>
-                        <input type="number" class="form-control" id="nominal" aria-label="Amount" name="nominal">
+                        <input type="number" class="form-control" id="nominal" aria-label="Amount" name="nominal_pembayaran" max="{{ $selectedRencana ? $selectedRencana->nominal : '' }}">
                         <span class="input-group-text">,00</span>
                     </div>
                 </div>
@@ -66,3 +66,4 @@
     </div>
 </div>
 @endsection
+

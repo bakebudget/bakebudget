@@ -44,7 +44,7 @@
                     </div>
                     <div class="list-group-item">
                         <h5 class="mb-1">Nominal</h5>
-                        <p class="mb-1">{{ $pembayaran->nominal }}</p>
+                        <p class="mb-1">{{ $pembayaran->nominal_pembayaran }}</p>
                     </div>
                     <div class="list-group-item">
                         <h5 class="mb-1">Bukti Pembayaran</h5>

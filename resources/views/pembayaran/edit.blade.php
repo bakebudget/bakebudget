@@ -53,7 +53,7 @@
                     <label for="nominal">Nominal</label>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Rp</span>
-                        <input type="number" class="form-control" id="nominal" aria-label="Amount" name="nominal" value="{{ $pembayaran->nominal }}">
+                        <input type="number" class="form-control" id="nominal" aria-label="Amount" name="nominal_pembayaran" value="{{ $pembayaran->nominal }}">
                         <span class="input-group-text">,00</span>
                     </div>
                 </div>
