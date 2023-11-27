@@ -19,7 +19,10 @@
                 </div>
                 <div class="mb-3">
                     <label for="stok_kue" class="form-label">Stok Kue</label>
-                    <input type="number" name="stok_kue" class="form-control" id="stok_kue" placeholder="">
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" id="stok_kue" aria-label="Amount" name="stok_kue">
+                        <span class="input-group-text">pcs</span>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="harga_kue" class="form-label">Harga Kue</label>

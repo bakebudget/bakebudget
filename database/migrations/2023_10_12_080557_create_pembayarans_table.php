@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('tanggal_pembayaran');
             $table->string('nama_penerima', 50);
             $table->string('nomor_rekening_penerima', 20);
-            $table->unsignedBigInteger('nominal');
+            $table->unsignedBigInteger('nominal_pembayaran');
 
             $table->foreign('kode_metode')->on('metode_pembayaran')->references('kode_metode')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('id_pengeluaran')->on('rencana_pengeluaran')->references('id_pengeluaran')->cascadeOnDelete()->cascadeOnUpdate();

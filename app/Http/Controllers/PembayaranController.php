@@ -8,6 +8,7 @@ use App\Models\Pembayaran;
 use App\Models\RencanaPengeluaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Component;
 
 class PembayaranController extends Controller
 {
@@ -31,9 +32,15 @@ class PembayaranController extends Controller
         return view("pembayaran.index", $data);
     }
 
-    public function tambah()
+    public function tambah(Request $request)
     {
+        $selectedRencana = null; // Default to no selection
+        if (request()->has('id_pengeluaran')) {
+            $selectedRencana = RencanaPengeluaran::find(request('id_pengeluaran'));
+        }
+
         $data = [
+            'selectedRencana' => $selectedRencana,
             'metode' => MetodePembayaran::all('*'),
             'rencana' => RencanaPengeluaran::all('*'),
         ];
@@ -50,7 +57,7 @@ class PembayaranController extends Controller
             'nama_penerima' => 'required',
             'bukti_pembayaran' => 'mimes:png,jpg,jpeg,csv,txt,pdf',
             // 'nomor_rekening_penerima' => 'integer',
-            'nominal' => 'required|integer',
+            'nominal_pembayaran' => 'required|integer',
         ]);
 
         if ($data):
@@ -112,8 +119,8 @@ class PembayaranController extends Controller
             'id_pengeluaran' => 'required',
             'nama_penerima' => 'required',
             'bukti_pembayaran' => 'mimes:png,jpg,jpeg,csv,txt,pdf',
-            'nomor_rekening_penerima' => 'integer',
-            'nominal' => 'required|integer',
+            // 'nomor_rekening_penerima' => 'integer',
+            'nominal_pembayaran' => 'required|integer',
         ]);
 
         $file = $request->file('bukti_pembayaran');
@@ -159,5 +166,13 @@ class PembayaranController extends Controller
     public function download(Request $request)
     {
         return Storage::disk('public')->download($request->path);
+    }
+}
+
+class DynamicNominal extends Component
+{
+    public function render()
+    {
+        return view('livewire.dynamic-nominal');
     }
 }

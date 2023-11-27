@@ -20,6 +20,6 @@ class MetodePembayaran extends Model
     protected $table = 'metode_pembayaran';
     protected $primaryKey = 'kode_metode';
     protected $keyType = 'string';
-    protected $fillable = ['nama_metode'];
+    protected $fillable = ['nama_metode', 'kode_metode'];
     public $timestamps = false;
 }

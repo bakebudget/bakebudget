@@ -16,7 +16,7 @@ class DashboardController extends Controller
     {
         //
         $data = [
-        // 'sum' => DB::select('SELECT * FROM sum_pengeluaran')[0],
+        'sum' => DB::select('SELECT * FROM sum_pengeluaran')[0],
         'user' => User::query()->count('username')
         ];
         return view('dashboard.index', $data);
