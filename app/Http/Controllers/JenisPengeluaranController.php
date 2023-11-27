@@ -53,4 +53,16 @@ class JenisPengeluaranController extends Controller
         endif;
     }
 
+    public function hapus(JenisPengeluaran $jenisPengeluaran, Request $request)
+    {
+        $curr_jenisPengeluaran = $jenisPengeluaran->newQuery()->find($request->id);
+        if (!empty($curr_jenisPengeluaran->file) && Storage::disk('public')->exists($curr_jenisPengeluaran->file)) {
+            Storage::disk('public')->delete($curr_jenisPengeluaran->file);
+        }
+        if ($curr_jenisPengeluaran->delete()) {
+            return redirect()->to('/jenis_pengeluaran')->with('success','Data jenis pengeluaran berhasil dihapus');
+        } else
+            return redirect()->to('/jenis_pengeluaran')->with('error','Data jenis pengeluaran gagal dihapus');
+    }
+
 }
