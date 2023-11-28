@@ -63,7 +63,7 @@
                         </a>
                     </li>
                     <li id="transaksi">
-                        <a href="#" class="nav-link ">
+                        <a href="{{ url('transaksi') }}" class="nav-link ">
                             <i class="bi-tags" height="16"></i>
                             Transaksi
                         </a>
