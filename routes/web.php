@@ -102,4 +102,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/jenis_pengeluaran/tambah', [JenisPengeluaranController::class, 'tambah']);
     Route::post('/jenis_pengeluaran/simpan', [JenisPengeluaranController::class, 'simpan']);
     Route::get('/jenis_pengeluaran/hapus/{id}', [JenisPengeluaranController::class, 'hapus']);
+    Route::get('/jenis_pengeluaran/edit/{id}', [JenisPengeluaranController::class, 'edit']);
+    Route::post('/jenis_pengeluaran/update/{id}', [JenisPengeluaranController::class, 'update']);
 });

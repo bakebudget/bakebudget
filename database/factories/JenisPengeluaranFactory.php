@@ -17,7 +17,9 @@ class JenisPengeluaranFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nama_jenis_pengeluaran' => 'Biaya maintenance',
+            'kode_jenis_pengeluaran' => 'J001',
+
         ];
     }
 }

@@ -32,9 +32,8 @@
                             <th scope="row">{{ $u->kode_jenis_pengeluaran }}</th>
                             <th scope="row">{{ $u->nama_jenis_pengeluaran }}</th>
                             <td>
-                                <a href="{{ url('/user',['detail', $u->kode_jenis_pengeluaran]) }}"><i class="bi-eye"></i></a>
                                 <button data-id="{{ $u->kode_jenis_pengeluaran }}" class="btn hapusButton"><i class="bi-trash"></i></button>
-                                <a href="{{ url('/user', ['edit', $u->kode_jenis_pengeluaran]) }}"><i class="bi-pencil-square"></i></a>
+                                <a href="{{ url('/jenis_pengeluaran', ['edit', $u->kode_jenis_pengeluaran]) }}"><i class="bi-pencil-square"></i></a>
                             </td>
                         </tr>
                         @endforeach
@@ -62,7 +61,7 @@
             }).then(({
                     isConfirmed
                 }) => isConfirmed &&
-                axios.get(`/user/hapus/${id}`)
+                axios.get(`/jenis_pengeluaran/hapus/${id}`)
                 .then(() => Swal.fire({
                     icon: "success",
                     titleText: "Data berhasil dihapus",

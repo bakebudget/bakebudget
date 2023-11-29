@@ -8,7 +8,7 @@ use App\Models\Pembayaran;
 use App\Models\RencanaPengeluaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Livewire\Component;
+
 
 class PembayaranController extends Controller
 {
@@ -166,13 +166,5 @@ class PembayaranController extends Controller
     public function download(Request $request)
     {
         return Storage::disk('public')->download($request->path);
-    }
-}
-
-class DynamicNominal extends Component
-{
-    public function render()
-    {
-        return view('livewire.dynamic-nominal');
     }
 }
