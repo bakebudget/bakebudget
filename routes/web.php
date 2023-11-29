@@ -97,6 +97,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/metodepembayaran/update/{id}', [MetodePembayaranController::class, 'update']);
 
     Route::get('/log', [LogController::class, 'index']);
+    Route::get('/print_log', [LogController::class, 'print']);
 
     Route::get('/jenis_pengeluaran', [JenisPengeluaranController::class, 'index']);
     Route::get('/jenis_pengeluaran/tambah', [JenisPengeluaranController::class, 'tambah']);
