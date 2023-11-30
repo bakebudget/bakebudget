@@ -56,13 +56,35 @@ class JenisPengeluaranController extends Controller
     public function hapus(JenisPengeluaran $jenisPengeluaran, Request $request)
     {
         $curr_jenisPengeluaran = $jenisPengeluaran->newQuery()->find($request->id);
-        if (!empty($curr_jenisPengeluaran->file) && Storage::disk('public')->exists($curr_jenisPengeluaran->file)) {
-            Storage::disk('public')->delete($curr_jenisPengeluaran->file);
-        }
+        
         if ($curr_jenisPengeluaran->delete()) {
             return redirect()->to('/jenis_pengeluaran')->with('success','Data jenis pengeluaran berhasil dihapus');
         } else
             return redirect()->to('/jenis_pengeluaran')->with('error','Data jenis pengeluaran gagal dihapus');
+    }
+
+    public function edit(Request $request)
+    {
+        $data = [
+            'metode' => JenisPengeluaran::find($request->id)
+        ];
+
+        // dd($data);
+        
+        return view('jenis_pengeluaran.edit', $data);
+    }
+
+    public function update(Request $request)
+    {
+        $data = $request->validate([
+            'nama_jenis_pengeluaran' => 'required'
+        ]);
+        $update = JenisPengeluaran::query()->find($request->id);
+
+        if ($update->fill($data)->save()) {
+            return redirect()->to('/jenis_pengeluaran')->with('success', "Data Jenis Pengeluaran berhasil diupdate");
+        } else
+            return redirect()->back()->with('error', "Data Jenis Pengeluaran gagal diupdate");
     }
 
 }

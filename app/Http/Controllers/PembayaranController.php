@@ -9,7 +9,7 @@ use App\Models\Pembayaran;
 use App\Models\RencanaPengeluaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Livewire\Component;
+
 
 class PembayaranController extends Controller
 {
@@ -181,13 +181,5 @@ class PembayaranController extends Controller
         $pdf = Pdf::loadView("pembayaran.cetak", $data);
         $pdf->setpaper('A4','landscape');
         return $pdf->stream();
-    }
-}
-
-class DynamicNominal extends Component
-{
-    public function render()
-    {
-        return view('livewire.dynamic-nominal');
     }
 }
