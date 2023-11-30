@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use App\Models\MetodePembayaran;
 use App\Models\Pembayaran;
@@ -166,6 +167,20 @@ class PembayaranController extends Controller
     public function download(Request $request)
     {
         return Storage::disk('public')->download($request->path);
+    }
+
+    public function print(){
+        $data = [
+            
+            'metode_pembayaran' => MetodePembayaran::get(),
+            'pengeluaran' => RencanaPengeluaran::get(),
+            'pembayaran' => Pembayaran::orderBy('tanggal_pembayaran', 'desc')->with(['rencana_pengeluaran', 'metode_pembayaran'])->paginate(5)
+        ];
+
+
+        $pdf = Pdf::loadView("pembayaran.cetak", $data);
+        $pdf->setpaper('A4','landscape');
+        return $pdf->stream();
     }
 }
 

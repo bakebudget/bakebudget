@@ -16,6 +16,9 @@
                     </div>
                 </div>
                 <div class="col float-end text-end ml-5">
+                    <a href="{{ url('pembayaran', ['cetak']) }}" class="btn btn-primary">Cetak</a>
+                </div>
+                <div class="col float-end text-end ml-5">
                     <a href="{{ url('pembayaran', ['tambah']) }}" class="btn btn-success">Tambah</a>
                 </div>
             </div>

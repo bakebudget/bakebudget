@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
     <div class="col">
-        <a href="/pembayaran" class="btn btn-primary m-2"><i class="bi-arrow-left-circle me-2"></i>Kembali</a>
+        <a href="{{ url('pembayaran') }}" class="btn btn-primary m-2"><i class="bi-arrow-left-circle me-2"></i>Kembali</a>
     </div>
 </div>
 <div class="row">

@@ -19,11 +19,11 @@ class LogController extends Controller
     }
     function print()
     {
-        $logs = [
-            'logs' => LogAplikasi::all()
-        ];
+        $logs = LogAplikasi::get();
+        
 
-        $pdf = Pdf::loadView("log.index", compact( $logs));
+        $pdf = Pdf::loadView("log.index", compact('logs'));
+        $pdf->setpaper('A4','landscape');
         return $pdf->stream();
     }
 }

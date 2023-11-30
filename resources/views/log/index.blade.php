@@ -37,3 +37,21 @@
         </div>
     </div>
 @endsection
+
+@section('footer')
+<script>
+    function generatePDF() {
+        const doc = new jsPDF();
+        doc.text(20, 20, 'Log Activity'); // Report title
+
+        let yPosition = 30;
+        @foreach($logs as $log)
+            doc.text(20, yPosition, `Username: {{ $log->username }}, IP Address: {{ $log->ip_address }}, Action: {{ $log->action }}, Log: {{ $log->log }}`);
+            yPosition += 10;
+        @endforeach
+
+        // Save or open the PDF
+        doc.save('log.pdf');
+    }
+</script>
+@endsection

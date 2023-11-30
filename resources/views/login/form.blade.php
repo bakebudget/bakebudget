@@ -25,7 +25,7 @@
     
                             <h1 class="fw-bold mb-3 text-uppercase">Login here</h1>
     
-                            <form action="/login" method="post">
+                            <form action="{{ route('login') }}" method="post">
                                 @csrf
     
                             <div class="form-outline form-white mb-2">

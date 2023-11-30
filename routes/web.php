@@ -74,6 +74,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/pembayaran/update/{id}', [PembayaranController::class, 'update']);
     Route::get('/pembayaran/hapus/{id}', [PembayaranController::class, 'destroy']);
     Route::get('/pembayaran/download', [PembayaranController::class, 'download']);
+    Route::get('/pembayaran/cetak', [PembayaranController::class, 'print']);
 
     /**
      * Routing Rencana Pengeluaran
